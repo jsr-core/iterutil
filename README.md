@@ -328,7 +328,7 @@ console.log(it.next()); // { value: 1, done: false }
 console.log(it.next()); // { value: 2, done: false }
 
 for (const value of it) {
-    console.log(value);
+  console.log(value);
 }
 // 3
 // 4
@@ -343,7 +343,7 @@ console.log(await it.next()); // { value: 1, done: false }
 console.log(await it.next()); // { value: 2, done: false }
 
 for await (const value of it) {
-    console.log(value);
+  console.log(value);
 }
 // 3
 // 4
@@ -422,8 +422,8 @@ console.log(odd); // [1, 3, 5]
 import { partition } from "@core/iterutil/async/partition";
 
 const [even, odd] = await partition(
-    [1, 2, 3, 4, 5],
-    (value) => value % 2 === 0,
+  [1, 2, 3, 4, 5],
+  (value) => value % 2 === 0,
 );
 console.log(even); // [2, 4]
 console.log(odd); // [1, 3, 5]
@@ -451,9 +451,9 @@ const sum = reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
 console.log(sum); // 15
 
 const joined = reduce(
-    [1, 2, 3, 4, 5],
-    (acc, value) => acc + value.toString(),
-    "",
+  [1, 2, 3, 4, 5],
+  (acc, value) => acc + value.toString(),
+  "",
 );
 console.log(joined); // 12345
 ```
@@ -465,9 +465,9 @@ const sum = await reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
 console.log(sum); // 15
 
 const joined = await reduce(
-    [1, 2, 3, 4, 5],
-    (acc, value) => acc + value.toString(),
-    "",
+  [1, 2, 3, 4, 5],
+  (acc, value) => acc + value.toString(),
+  "",
 );
 console.log(joined); // 12345
 ```
@@ -536,9 +536,9 @@ Converts an iterable to an array.
 import { toArray } from "@core/iterutil/to-array";
 
 const arr = toArray(function* () {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 }());
 console.log(arr); // [1, 2, 3]
 ```
@@ -547,16 +547,16 @@ console.log(arr); // [1, 2, 3]
 import { toArray } from "@core/iterutil/async/to-array";
 
 const arr1 = await toArray(function* () {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 }());
 console.log(arr1); // [1, 2, 3]
 
 const arr2 = await toArray(async function* () {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 }());
 console.log(arr2); // [1, 2, 3]
 ```
@@ -584,8 +584,8 @@ const iter1 = uniq([1, 2, 2, 3, 3, 3]);
 console.log([...iter1]); // [1, 2, 3]
 
 const iter2 = uniq(
-    [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
-    (v) => Math.floor(v / 10),
+  [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
+  (v) => Math.floor(v / 10),
 );
 console.log([...iter2]); // [1, 10, 20, 30]
 ```
@@ -598,8 +598,8 @@ const iter1 = uniq([1, 2, 2, 3, 3, 3]);
 console.log(await toArray(iter1)); // [1, 2, 3]
 
 const iter2 = uniq(
-    [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
-    (v) => Math.floor(v / 10),
+  [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
+  (v) => Math.floor(v / 10),
 );
 console.log(await toArray(iter2)); // [1, 10, 20, 30]
 ```
