@@ -22,4 +22,15 @@ Deno.test("chain", async (t) => {
     assertEquals(await toArray(result), expected);
     assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
   });
+
+  await t.step("with mixed iterable", async () => {
+    const result = chain(
+      toAsyncIterable([1, 2]),
+      [3, 4],
+      toAsyncIterable([5]),
+    );
+    const expected = [1, 2, 3, 4, 5];
+    assertEquals(await toArray(result), expected);
+    assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
+  });
 });
