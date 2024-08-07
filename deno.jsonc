@@ -1,0 +1,33 @@
+{
+  "name": "@core/iterutil",
+  "version": "0.0.0",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "exclude": [
+    ".coverage/**"
+  ],
+  "publish": {
+    "include": [
+      "**/*.ts",
+      "README.md",
+      "LICENSE"
+    ],
+    "exclude": [
+      "**/*_test.ts",
+      "**/*_bench.ts",
+      ".*"
+    ]
+  },
+  "imports": {
+    "@core/iterutil": "./mod.ts"
+  },
+  "tasks": {
+    "check": "deno check **/*.ts",
+    "test": "deno test -A --doc --parallel --shuffle",
+    "test:coverage": "deno task test --coverage=.coverage",
+    "coverage": "deno coverage .coverage",
+    "update": "deno run --allow-env --allow-read --allow-write=. --allow-run=git,deno --allow-net=jsr.io,registry.npmjs.org jsr:@molt/cli ./*.ts",
+    "update:commit": "deno task -q update --commit --prefix deps: --pre-commit=fmt,lint"
+  }
+}
