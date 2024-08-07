@@ -14,7 +14,7 @@
  * ```
  */
 export async function* chain<T>(
-  ...iterables: Iterable<T>[] | AsyncIterable<T>[]
+  ...iterables: (Iterable<T> | AsyncIterable<T>)[]
 ): AsyncIterable<T> {
   for await (const iterable of iterables) {
     for await (const value of iterable) {
