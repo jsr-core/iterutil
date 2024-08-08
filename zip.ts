@@ -26,7 +26,7 @@ export function* zip<U extends Iterable<unknown>[]>(
 }
 
 /**
- * @inner
+ * @internal
  */
 export type Zip<T extends Iterable<unknown>[]> = {
   [P in keyof T]: T[P] extends Iterable<infer U> ? U : never;

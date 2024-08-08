@@ -35,7 +35,7 @@ export async function* chain<
 }
 
 /**
- * @inner
+ * @internal
  */
 export type Chain<T> = T extends readonly [] ? never
   : T extends readonly [Iterable<infer U>] ? U
