@@ -33,7 +33,7 @@ export async function* zip<
 }
 
 /**
- * @inner
+ * @internal
  */
 export type Zip<T extends (Iterable<unknown> | AsyncIterable<unknown>)[]> = {
   [P in keyof T]: T[P] extends Iterable<infer U> ? U

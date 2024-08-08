@@ -29,7 +29,7 @@ export function* chain<T extends Iterable<unknown>[]>(
 }
 
 /**
- * @inner
+ * @internal
  */
 export type Chain<T> = T extends readonly [] ? never
   : T extends readonly [Iterable<infer U>] ? U
