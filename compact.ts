@@ -1,5 +1,5 @@
 /**
- * Removes all nullish values from an iterable.
+ * Removes all nullish (`null` or `undefined`) values from an iterable.
  *
  * @param iterable The iterable to compact.
  * @returns The compacted iterable.

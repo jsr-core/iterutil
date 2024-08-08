@@ -1,5 +1,5 @@
 /**
- * Convert an iterable to an iterator.
+ * Converts an iterable to an iterator.
  *
  * @param iterable The iterable to convert.
  * @returns The iterator.

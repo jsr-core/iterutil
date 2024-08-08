@@ -1,5 +1,5 @@
 /**
- * Compress an iterable by selecting elements using a selector iterable.
+ * Compresses an iterable by selecting elements using a selector iterable.
  *
  * @param iterable The iterable to compress.
  * @param selectors The selectors to use.

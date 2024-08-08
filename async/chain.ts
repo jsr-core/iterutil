@@ -13,9 +13,7 @@
  * console.log(await toArray(iter)); // [1, 2, 3, 4]
  * ```
  *
- * It supports chaining malformed iterables.
- *
- * @example
+ * @example With malformed iterables
  * ```ts
  * import { toArray } from "@core/iterutil/async/to-array";
  * import { chain } from "@core/iterutil/async/chain";
@@ -36,6 +34,9 @@ export async function* chain<
   }
 }
 
+/**
+ * @inner
+ */
 export type Chain<T> = T extends readonly [] ? never
   : T extends readonly [Iterable<infer U>] ? U
   : T extends readonly [AsyncIterable<infer U>] ? U

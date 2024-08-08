@@ -1,5 +1,5 @@
 /**
- * Take elements from the iterable while the predicate is true.
+ * Takes elements from the iterable while the predicate is true.
  *
  * @param iterable The iterable to take elements from.
  * @param fn The predicate to take elements with.
