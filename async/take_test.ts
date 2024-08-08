@@ -2,7 +2,7 @@ import { assertEquals, assertThrows } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { toAsyncIterable } from "./to_async_iterable.ts";
 import { toArray } from "./to_array.ts";
-import { take } from "./take.ts";
+import { take, TakeLimitError } from "./take.ts";
 
 Deno.test("take", async (t) => {
   await t.step("with async iterable", async (t) => {
@@ -18,8 +18,7 @@ Deno.test("take", async (t) => {
         () => {
           take([0, 1, 2, 3, 4], -2);
         },
-        Error,
-        "limit argument must be greater than or equal to 0, but got -2.",
+        TakeLimitError,
       );
     });
 
@@ -44,8 +43,7 @@ Deno.test("take", async (t) => {
         () => {
           take([0, 1, 2, 3, 4], -2);
         },
-        Error,
-        "limit argument must be greater than or equal to 0, but got -2.",
+        TakeLimitError,
       );
     });
 

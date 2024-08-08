@@ -20,10 +20,8 @@ export function take<T>(
   iterable: Iterable<T> | AsyncIterable<T>,
   limit: number,
 ): AsyncIterable<T> {
-  if (limit < 0) {
-    throw new Error(
-      `limit argument must be greater than or equal to 0, but got ${limit}.`,
-    );
+  if (limit < 0 || !Number.isSafeInteger(limit)) {
+    throw new TakeLimitError(limit);
   }
   return async function* () {
     let i = 0;
@@ -34,4 +32,13 @@ export function take<T>(
       yield item;
     }
   }();
+}
+
+/**
+ * Error thrown when the 'limit' is negative or not a safe integer.
+ */
+export class TakeLimitError extends Error {
+  constructor(limit: number) {
+    super(`The 'limit' must be 0 or positive safe integer, but got ${limit}.`);
+  }
 }
