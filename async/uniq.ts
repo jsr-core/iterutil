@@ -14,7 +14,7 @@
  * console.log(await toArray(iter)); // [1, 2, 3]
  * ```
  *
- * @example
+ * @example With identify function
  * ```ts
  * import { toArray } from "@core/iterutil/async/to-array";
  * import { uniq } from "@core/iterutil/async/uniq";

@@ -1,6 +1,5 @@
 /**
- * Returns the first element of an iterable.
- * If the iterable is empty, returns `undefined`.
+ * Returns the first element of an iterable. If the iterable is empty, returns `undefined`.
  *
  * @param iterable The iterable to get the first element from.
  * @returns The first element of the iterable, or `undefined` if the iterable is empty.

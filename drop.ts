@@ -1,11 +1,10 @@
 /**
  * Drops the first `limit` items from the iterable.
  *
- * It throws an error if `limit` is less than 0.
- *
  * @param iterable The iterable to drop items from.
- * @param limit The number of items to drop.
+ * @param limit The number of items to drop. It must be 0 or positive safe integer.
  * @returns The iterable with the first `limit` items dropped.
+ * @throws {DropLimitError} If `limit` is less than 0 or non safe integer.
  *
  * @example
  * ```ts

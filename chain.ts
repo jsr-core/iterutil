@@ -12,9 +12,7 @@
  * console.log([...iter]); // [1, 2, 3, 4]
  * ```
  *
- * It supports chaining malformed iterables.
- *
- * @example
+ * @example With malformed iterables
  * ```ts
  * import { chain } from "@core/iterutil/chain";
  *
@@ -30,6 +28,9 @@ export function* chain<T extends Iterable<unknown>[]>(
   }
 }
 
+/**
+ * @inner
+ */
 export type Chain<T> = T extends readonly [] ? never
   : T extends readonly [Iterable<infer U>] ? U
   : T extends readonly [Iterable<infer U>, ...infer R] ? U | Chain<R>

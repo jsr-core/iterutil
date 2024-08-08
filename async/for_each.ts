@@ -7,6 +7,7 @@
  * @example
  * ```ts
  * import { forEach } from "@core/iterutil/async/for-each";
+ *
  * await forEach([1, 2, 3], console.log);
  * // 1
  * // 2

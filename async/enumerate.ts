@@ -1,5 +1,5 @@
 /**
- * Enumerate an iterable.
+ * Enumerates an iterable.
  *
  * @param iterable The iterable to enumerate.
  * @param start The starting index.

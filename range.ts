@@ -3,6 +3,7 @@
  *
  * @param stop The end of the range.
  * @returns The range of numbers.
+ *
  * @example
  * ```ts
  * import { range } from "@core/iterutil/range";

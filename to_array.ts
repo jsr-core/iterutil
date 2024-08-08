@@ -1,6 +1,8 @@
 /**
  * Converts an iterable to an array.
  *
+ * Note that users should use `Array.from` directly. This function exists for consistency with `async/to-array.toArray`.
+ *
  * @param iterable The iterable to convert.
  * @returns The array.
  *

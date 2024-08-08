@@ -13,7 +13,7 @@
  * console.log([...iter]); // [1, 2, 3]
  * ```
  *
- * @example
+ * @example With identify function
  * ```ts
  * import { uniq } from "@core/iterutil/uniq";
  *
