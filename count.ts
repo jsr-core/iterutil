@@ -1,9 +1,11 @@
 /**
  * Generates an infinite sequence of numbers starting from `start` with a step of `step`.
  *
- * @param start The number to start the sequence from.
- * @param step The step between each number in the sequence.
+ * @param - start The number to start the sequence from.
+ * @param - step The step between each number in the sequence.
  * @returns The count iterable.
+ * @see {@link module:iterutil/take.take} to take a specific number of elements from the iterable.
+ * @see {@link module:iterutil/range.range} for a finite version of this function.
  *
  * @example
  * ```ts

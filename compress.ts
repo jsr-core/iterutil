@@ -1,9 +1,12 @@
 /**
  * Compress an iterable by selecting elements using a selector iterable.
  *
- * @param iterable The iterable to compress.
- * @param selectors The selectors to use.
+ * @param iterable - The iterable to compress.
+ * @param selectors - The selectors to use.
  * @returns The compressed iterable.
+ * @see {@link module:iterutil/async/compress.compress} for the asynchronous version.
+ * @see {@link module:iterutil/compact.compact} to remove nullish values from an iterable.
+ * @see {@link module:iterutil/filter.filter} to remove values based on a predicate.
  *
  * @example
  * ```ts

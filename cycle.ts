@@ -1,8 +1,10 @@
 /**
  * Returns an infinite iterable that cycles through the given iterable.
  *
- * @param iterable The iterable to cycle.
+ * @param iterable - The iterable to cycle.
  * @returns The cycled iterable.
+ * @see {@link module:iterutil/async/cycle.cycle} for the asynchronous version.
+ * @see {@link module:iterutil/take.take} to take a specific number of elements from the iterable.
  *
  * @example
  * ```ts

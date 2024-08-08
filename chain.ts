@@ -1,8 +1,9 @@
 /**
  * Chains multiple iterables together.
  *
- * @param iterables The iterables to chain.
+ * @param iterables - The iterables to chain.
  * @returns The chained iterable.
+ * @see {@link module:iterutil/async/chain.chain} for the asynchronous version.
  *
  * @example
  * ```ts
@@ -11,8 +12,6 @@
  * const iter = chain([1, 2], [3, 4]);
  * console.log([...iter]); // [1, 2, 3, 4]
  * ```
- *
- * It supports chaining malformed iterables.
  *
  * @example
  * ```ts

@@ -1,8 +1,8 @@
 /**
  * Maps each value in an iterable to an iterable, then flattens the result.
  *
- * @param iterable The iterable to flat map.
- * @param fn The function to map with.
+ * @param iterable - The iterable to flat map.
+ * @param fn - The function to map with.
  * @returns The flat mapped iterable.
  *
  * @example

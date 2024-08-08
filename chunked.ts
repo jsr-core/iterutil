@@ -1,9 +1,10 @@
 /**
  * Chunks an iterable into arrays of a given size.
  *
- * @param iterable The iterable to chunk.
- * @param size The size of each chunk.
- * @returns The chunked iterable.
+ * @param iterable - The iterable to chunk.
+ * @param size - The size of each chunk.
+ * @return The chunked iterable.
+ * @see {@link module:iterutil/async/chunked.chunked} for the asynchronous version.
  *
  * @example
  * ```ts

@@ -1,9 +1,13 @@
 /**
  * Enumerate an iterable.
  *
- * @param iterable The iterable to enumerate.
- * @param start The starting index.
+ * @param iterable - The iterable to enumerate.
+ * @param start - The starting index.
  * @returns An iterable of index-value pairs.
+ * @see {@link module:iterutil/async/enumerate.enumerate} for the asynchronous version.
+ * @see {@link module:iterutil/zipped.zipped} to zip multiple iterables together.
+ * @see {@link module:iterutil/count.count} to generate an infinite sequence of numbers.
+ * @see {@link module:iterutil/range.range} to generate a finite sequence of numbers.
  *
  * @example
  * ```ts

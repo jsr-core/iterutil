@@ -1,11 +1,14 @@
 /**
  * Drops the first `limit` items from the iterable.
  *
- * It throws an error if `limit` is less than 0.
- *
- * @param iterable The iterable to drop items from.
- * @param limit The number of items to drop.
+ * @param iterable - The iterable to drop items from.
+ * @param limit - The number of items to drop. It must be 0 or positive safe integer.
  * @returns The iterable with the first `limit` items dropped.
+ * @throws {DropLimitError} If the limit is not a safe integer or is negative.
+ * @see {@link module:iterutil/async/drop.drop} for the asynchronous version.
+ * @see {@link module:iterutil/drop-while.dropWhile} to drop elements while a predicate is true.
+ * @see {@link module:iterutil/take.take} to take a specific number of elements from the iterable.
+ * @see {@link module:iterutil/take-while.takeWhile} to take elements while a predicate is true.
  *
  * @example
  * ```ts

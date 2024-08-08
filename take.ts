@@ -1,11 +1,10 @@
 /**
- * Take the first `limit` items from the iterable.
+ * Takes the first `limit` items from the iterable.
  *
- * It throws an error if `limit` is less than 0.
- *
- * @param iterable The iterable to take items from.
- * @param limit The number of items to take.
+ * @param iterable - The iterable to take items from.
+ * @param limit - The number of items to drop. It must be 0 or positive safe integer.
  * @returns The iterable with the first `limit` items taken.
+ * @throws {TakeLimitError} If the limit is not a safe integer or is negative.
  *
  * @example
  * ```ts

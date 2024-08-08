@@ -1,8 +1,11 @@
 /**
- * Removes all nullish values from an iterable.
+ * Removes all nullish ({@codelink null} or {@codelink undefined}) values from an iterable.
  *
- * @param iterable The iterable to compact.
+ * @param iterable - The iterable to compact.
  * @returns The compacted iterable.
+ * @see {@link module:iterutil/async/compact.compact} for the asynchronous version.
+ * @see {@link module:iterutil/compress.compress} to select elements based on a selector iterable.
+ * @see {@link module:iterutil/filter.filter} to remove values based on a predicate.
  *
  * @example
  * ```ts

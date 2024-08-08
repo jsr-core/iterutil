@@ -1,9 +1,12 @@
 /**
  * Returns the first element of an iterable.
- * If the iterable is empty, returns `undefined`.
+ * If the iterable is empty, returns undefined.
  *
- * @param iterable The iterable to get the first element from.
- * @returns The first element of the iterable, or `undefined` if the iterable is empty.
+ * @param iterable - The iterable to get the first element from.
+ * @returns The first element of the iterable, or undefined if the iterable is empty.
+ * @see {@link module:iterutil/async/first.first} for the asynchronous version.
+ * @see {@link module:iterutil/find.find} to find the first element that satisfies a predicate.
+ * @see {@link module:iterutil/last.last} to get the last element of an iterable.
  *
  * @example
  * ```ts
