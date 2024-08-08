@@ -1,9 +1,8 @@
 /**
  * Chains multiple iterables together.
  *
- * @param iterables - The iterables to chain.
+ * @param ...iterables - The iterables to chain.
  * @returns The chained iterable.
- * @see {@link module:iterutil/async/chain.chain} for the asynchronous version.
  *
  * @example
  * ```ts
@@ -20,6 +19,10 @@
  * const iter = chain([1, 2], ["a", "b"], [true]);
  * console.log([...iter]); // [1, 2, "a", "b", true]
  * ```
+ *
+ * ## See also
+ *
+ * - {@link module:iterutil/async/chain.chain} for the asynchronous version.
  */
 export function* chain<T extends Iterable<unknown>[]>(
   ...iterables: T
@@ -29,6 +32,9 @@ export function* chain<T extends Iterable<unknown>[]>(
   }
 }
 
+/**
+ * @internal
+ */
 export type Chain<T> = T extends readonly [] ? never
   : T extends readonly [Iterable<infer U>] ? U
   : T extends readonly [Iterable<infer U>, ...infer R] ? U | Chain<R>

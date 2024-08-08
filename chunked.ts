@@ -4,7 +4,6 @@
  * @param iterable - The iterable to chunk.
  * @param size - The size of each chunk.
  * @return The chunked iterable.
- * @see {@link module:iterutil/async/chunked.chunked} for the asynchronous version.
  *
  * @example
  * ```ts
@@ -13,6 +12,10 @@
  * const iter = chunked([1, 2, 3, 4, 5], 2);
  * console.log([...iter]); // [[1, 2], [3, 4], [5]]
  * ```
+ *
+ * ## See also
+ *
+ * - {@link module:iterutil/async/chunked.chunked} for the asynchronous version.
  */
 export function* chunked<T>(
   iterable: Iterable<T>,

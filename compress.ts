@@ -4,9 +4,6 @@
  * @param iterable - The iterable to compress.
  * @param selectors - The selectors to use.
  * @returns The compressed iterable.
- * @see {@link module:iterutil/async/compress.compress} for the asynchronous version.
- * @see {@link module:iterutil/compact.compact} to remove nullish values from an iterable.
- * @see {@link module:iterutil/filter.filter} to remove values based on a predicate.
  *
  * @example
  * ```ts
@@ -15,6 +12,11 @@
  * const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
  * console.log([...iter]); // [1, 3, 5]
  * ```
+ *
+ * ## See also
+ * - {@link module:iterutil/async/compress.compress} for the asynchronous version.
+ * - {@link module:iterutil/compact.compact} to remove nullish values from an iterable.
+ * - {@link module:iterutil/filter.filter} to remove values based on a predicate.
  */
 export function* compress<T>(
   iterable: Iterable<T>,
