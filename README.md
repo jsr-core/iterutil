@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/github/jsr-core/iterutil/graph/badge.svg?token=pfbLRGU5AM)](https://codecov.io/github/jsr-core/iterutil)
 
 Iterator / AsyncIterator utility pack for JavaScript and TypeScript. Each module
-is designed to work independently, avoiding internal interdependencies as much
+is designed to work independently, avoiding internal inter-dependencies as much
 as possible.
 
 ## Usage
@@ -16,7 +16,7 @@ both synchronous and asynchronous iterables (`Iterable` and `AsyncIterable`).
 
 ### chain
 
-Chains multiple iterables or async iterables together.
+Chains multiple iterables together.
 
 ```ts
 import { chain } from "@core/iterutil/chain";
@@ -54,7 +54,7 @@ console.log(await toArray(iter)); // [[1, 2], [3, 4], [5]]
 
 ### compact
 
-Removes all nullish values from an iterable.
+Removes all nullish (`null` or `undefined`) values from an iterable.
 
 ```ts
 import { compact } from "@core/iterutil/compact";
@@ -73,7 +73,7 @@ console.log(await toArray(iter)); // [1, 2, 3]
 
 ### compress
 
-Compress an iterable by selecting elements using a selector iterable.
+Compresses an iterable by selecting elements using a selector iterable.
 
 ```ts
 import { compress } from "@core/iterutil/compress";
@@ -164,7 +164,7 @@ console.log(await toArray(iter)); // [3, 4, 5]
 
 ### enumerate
 
-Enumerate an iterable.
+Enumerates an iterable.
 
 ```ts
 import { enumerate } from "@core/iterutil/enumerate";
@@ -318,7 +318,7 @@ await forEach([1, 2, 3], console.log);
 
 ### iter
 
-Convert an iterable to an iterator.
+Converts an iterable to an iterator.
 
 ```ts
 import { iter } from "@core/iterutil/iter";
@@ -431,7 +431,7 @@ console.log(odd); // [1, 3, 5]
 
 ### range
 
-Generate a range of numbers.
+Generates a range of numbers.
 
 ```ts
 import { range } from "@core/iterutil/range";
@@ -492,7 +492,7 @@ console.log(await some([1, 3, 5], (value) => value % 2 === 0)); // false
 
 ### take
 
-Take the first `limit` items from the iterable.
+Takes the first `limit` items from the iterable.
 
 ```ts
 import { take } from "@core/iterutil/take";
@@ -511,7 +511,7 @@ console.log(await toArray(iter)); // [1, 2]
 
 ### takeWhile
 
-Take elements from the iterable while the predicate is true.
+Takes elements from the iterable while the predicate is true.
 
 ```ts
 import { takeWhile } from "@core/iterutil/take-while";
