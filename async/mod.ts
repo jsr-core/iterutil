@@ -1,3 +1,6 @@
+/**
+ * @module async
+ */
 export * from "./chain.ts";
 export * from "./chunked.ts";
 export * from "./compact.ts";

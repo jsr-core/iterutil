@@ -20,8 +20,13 @@
  * console.log([...iter]); // [1, 2, "a", "b", true]
  * ```
  *
- * ## See also
- *
+ * # See also
+ * - {@link module:async/chain.chain} for the asynchronous version.
+ * ## Test2
+ * - {@link module:async.chain} for the asynchronous version.
+ * ### Test3
+ * - {@link chain} for the asynchronous version.
+ * #### Test4
  * - {@link async/chain.chain} for the asynchronous version.
  */
 export function* chain<T extends Iterable<unknown>[]>(
