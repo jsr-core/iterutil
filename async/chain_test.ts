@@ -33,4 +33,17 @@ Deno.test("chain", async (t) => {
     assertEquals(await toArray(result), expected);
     assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
   });
+
+  await t.step("with malform iterable", async () => {
+    const result = chain(
+      toAsyncIterable([1, 2]),
+      ["a", "b"],
+      toAsyncIterable([true]),
+    );
+    const expected = [1, 2, "a", "b", true];
+    assertEquals(await toArray(result), expected);
+    assertType<
+      IsExact<typeof result, AsyncIterable<number | string | boolean>>
+    >(true);
+  });
 });
