@@ -16,10 +16,8 @@
  * ```
  */
 export function drop<T>(iterable: Iterable<T>, limit: number): Iterable<T> {
-  if (limit < 0) {
-    throw new Error(
-      `limit argument must be greater than or equal to 0, but got ${limit}.`,
-    );
+  if (limit < 0 || !Number.isSafeInteger(limit)) {
+    throw new DropLimitError(limit);
   }
   return function* () {
     let i = 0;
@@ -29,4 +27,13 @@ export function drop<T>(iterable: Iterable<T>, limit: number): Iterable<T> {
       }
     }
   }();
+}
+
+/**
+ * Error thrown when the 'limit' is negative or not a safe integer.
+ */
+export class DropLimitError extends Error {
+  constructor(limit: number) {
+    super(`The 'limit' must be 0 or positive safe integer, but got ${limit}.`);
+  }
 }
