@@ -22,7 +22,7 @@
  *
  * ## See also
  *
- * - {@link module:iterutil/async/chain.chain} for the asynchronous version.
+ * - {@link async/chain.chain} for the asynchronous version.
  */
 export function* chain<T extends Iterable<unknown>[]>(
   ...iterables: T
