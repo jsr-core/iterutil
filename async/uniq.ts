@@ -1,6 +1,8 @@
 /**
  * Returns an iterable that yields the unique elements of the input iterable.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/uniq/~/uniq uniq} to get the unique elements synchronously.
+ *
  * @param iterable The iterable to get the unique elements of.
  * @param identify An optional function to transform the elements before checking for uniqueness.
  * @returns An iterable that yields the unique elements of the input iterable.

@@ -1,0 +1,16 @@
+import { assertEquals } from "@std/assert";
+import { assertType, type IsExact } from "@std/testing/types";
+import { pipe } from "@core/pipe";
+import { dropWhile } from "./drop_while.ts";
+
+Deno.test("dropWhile", async (t) => {
+  await t.step("usage", async () => {
+    const result = pipe(
+      [0, 1, 2, 3, 4],
+      dropWhile((v) => v < 2),
+    );
+    const expected = [2, 3, 4];
+    assertEquals(await Array.fromAsync(result), expected);
+    assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
+  });
+});
