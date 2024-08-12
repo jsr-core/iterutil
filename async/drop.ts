@@ -1,10 +1,14 @@
 /**
  * Drops the first `limit` items from the iterable.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/drop-while dropWhile} to drop items while a condition is met.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/take take} to take a specific number of items from an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/drop drop} to drop items synchronously.
+ *
  * @param iterable The iterable to drop items from.
  * @param limit The number of items to drop. It must be 0 or positive safe integer.
  * @returns The iterable with the first `limit` items dropped.
- * @throws {DropLimitError} If `limit` is less than 0 or non safe integer.
+ * @throws {RangeError} if `limit` is less than 0 or non safe integer.
  *
  * @example
  * ```ts
@@ -19,7 +23,14 @@ export function drop<T>(
   limit: number,
 ): AsyncIterable<T> {
   if (limit < 0 || !Number.isSafeInteger(limit)) {
-    throw new DropLimitError(limit);
+    throw new RangeError(
+      `limit must be 0 or positive safe integer, but got ${limit}.`,
+    );
+  }
+  if (limit === 0) {
+    return async function* () {
+      yield* iterable;
+    }();
   }
   return async function* () {
     let i = 0;
@@ -29,13 +40,4 @@ export function drop<T>(
       }
     }
   }();
-}
-
-/**
- * Error thrown when the 'limit' is negative or not a safe integer.
- */
-export class DropLimitError extends Error {
-  constructor(limit: number) {
-    super(`The 'limit' must be 0 or positive safe integer, but got ${limit}.`);
-  }
 }
