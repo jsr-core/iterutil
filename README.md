@@ -22,15 +22,14 @@ Chains multiple iterables together.
 import { chain } from "@core/iterutil/chain";
 
 const iter = chain([1, 2], [3, 4]);
-console.log([...iter]); // [1, 2, 3, 4]
+console.log(Array.from(iter)); // [1, 2, 3, 4]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { chain } from "@core/iterutil/async/chain";
 
 const iter = chain([1, 2], [3, 4]);
-console.log(await toArray(iter)); // [1, 2, 3, 4]
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4]
 ```
 
 ### chunked
@@ -41,15 +40,14 @@ Chunks an iterable into arrays of a given size.
 import { chunked } from "@core/iterutil/chunked";
 
 const iter = chunked([1, 2, 3, 4, 5], 2);
-console.log([...iter]); // [[1, 2], [3, 4], [5]]
+console.log(Array.from(iter)); // [[1, 2], [3, 4], [5]]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { chunked } from "@core/iterutil/async/chunked";
 
 const iter = chunked([1, 2, 3, 4, 5], 2);
-console.log(await toArray(iter)); // [[1, 2], [3, 4], [5]]
+console.log(await Array.fromAsync(iter)); // [[1, 2], [3, 4], [5]]
 ```
 
 ### compact
@@ -60,15 +58,14 @@ Removes all nullish (`null` or `undefined`) values from an iterable.
 import { compact } from "@core/iterutil/compact";
 
 const iter = compact([1, undefined, 2, null, 3]);
-console.log([...iter]); // [1, 2, 3]
+console.log(Array.from(iter)); // [1, 2, 3]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { compact } from "@core/iterutil/async/compact";
 
 const iter = compact([1, undefined, 2, null, 3]);
-console.log(await toArray(iter)); // [1, 2, 3]
+console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
 
 ### compress
@@ -79,15 +76,14 @@ Compresses an iterable by selecting elements using a selector iterable.
 import { compress } from "@core/iterutil/compress";
 
 const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
-console.log([...iter]); // [1, 3, 5]
+console.log(Array.from(iter)); // [1, 3, 5]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { compress } from "@core/iterutil/async/compress";
 
 const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
-console.log(await toArray(iter)); // [1, 3, 5]
+console.log(await Array.fromAsync(iter)); // [1, 3, 5]
 ```
 
 ### count
@@ -100,7 +96,7 @@ import { count } from "@core/iterutil/count";
 import { take } from "@core/iterutil/take";
 
 const iter = count(1, 2);
-console.log([...take(iter, 5)]); // [1, 3, 5, 7, 9]
+console.log(Array.from(take(iter, 5))); // [1, 3, 5, 7, 9]
 ```
 
 ### cycle
@@ -112,16 +108,15 @@ import { cycle } from "@core/iterutil/cycle";
 import { take } from "@core/iterutil/take";
 
 const iter = cycle([1, 2, 3]);
-console.log([...take(iter, 5)]); // [1, 2, 3, 1, 2]
+console.log(Array.from(take(iter, 5))); // [1, 2, 3, 1, 2]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { cycle } from "@core/iterutil/async/cycle";
 import { take } from "@core/iterutil/async/take";
 
 const iter = cycle([1, 2, 3]);
-console.log(await toArray(take(iter, 5))); // [1, 2, 3, 1, 2]
+console.log(await Array.fromAsync(take(iter, 5))); // [1, 2, 3, 1, 2]
 ```
 
 ### drop
@@ -132,15 +127,14 @@ Drops the first `limit` items from the iterable.
 import { drop } from "@core/iterutil/drop";
 
 const iter = drop([1, 2, 3, 4, 5], 2);
-console.log([...iter]); // [3, 4, 5]
+console.log(Array.from(iter)); // [3, 4, 5]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { drop } from "@core/iterutil/async/drop";
 
 const iter = drop([1, 2, 3, 4, 5], 2);
-console.log(await toArray(iter)); // [3, 4, 5]
+console.log(await Array.fromAsync(iter)); // [3, 4, 5]
 ```
 
 ### dropWhile
@@ -151,15 +145,14 @@ Drops elements from the iterable while the predicate returns true.
 import { dropWhile } from "@core/iterutil/drop-while";
 
 const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
-console.log([...iter]); // [3, 4, 5]
+console.log(Array.from(iter)); // [3, 4, 5]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { dropWhile } from "@core/iterutil/async/drop-while";
 
 const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
-console.log(await toArray(iter)); // [3, 4, 5]
+console.log(await Array.fromAsync(iter)); // [3, 4, 5]
 ```
 
 ### enumerate
@@ -170,15 +163,14 @@ Enumerates an iterable.
 import { enumerate } from "@core/iterutil/enumerate";
 
 const iter = enumerate(["a", "b", "c"]);
-console.log([...iter]); // [[0, "a"], [1, "b"], [2, "c"]]
+console.log(Array.from(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { enumerate } from "@core/iterutil/async/enumerate";
 
 const iter = enumerate(["a", "b", "c"]);
-console.log(await toArray(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
+console.log(await Array.fromAsync(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
 ```
 
 ### every
@@ -194,7 +186,6 @@ console.log(every([1, 2, 3], (value) => value > 1)); // false
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { every } from "@core/iterutil/async/every";
 
 console.log(await every([1, 2, 3], (value) => value > 0)); // true
@@ -209,15 +200,14 @@ Filters an iterable based on a function.
 import { filter } from "@core/iterutil/filter";
 
 const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
-console.log([...iter]); // [2, 4]
+console.log(Array.from(iter)); // [2, 4]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { filter } from "@core/iterutil/async/filter";
 
 const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
-console.log(await toArray(iter)); // [2, 4]
+console.log(await Array.fromAsync(iter)); // [2, 4]
 ```
 
 ### find
@@ -266,15 +256,14 @@ Maps each value in an iterable to an iterable, then flattens the result.
 import { flatMap } from "@core/iterutil/flat-map";
 
 const iter = flatMap([1, 2, 3], (value) => [value, value]);
-console.log([...iter]); // [1, 1, 2, 2, 3, 3]
+console.log(Array.from(iter)); // [1, 1, 2, 2, 3, 3]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { flatMap } from "@core/iterutil/async/flat-map";
 
 const iter = flatMap([1, 2, 3], (value) => [value, value]);
-console.log(await toArray(iter)); // [1, 1, 2, 2, 3, 3]
+console.log(await Array.fromAsync(iter)); // [1, 1, 2, 2, 3, 3]
 ```
 
 ### flatten
@@ -285,15 +274,14 @@ Flattens an iterable of iterables into a single iterable.
 import { flatten } from "@core/iterutil/flatten";
 
 const iter = flatten([[1, 2], [3, 4], [5]]);
-console.log([...iter]); // [1, 2, 3, 4, 5]
+console.log(Array.from(iter)); // [1, 2, 3, 4, 5]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { flatten } from "@core/iterutil/async/flatten";
 
 const iter = flatten([[1, 2], [3, 4], [5]]);
-console.log(await toArray(iter)); // [1, 2, 3, 4, 5]
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4, 5]
 ```
 
 ### forEach
@@ -376,15 +364,14 @@ Maps an iterable with a function.
 import { map } from "@core/iterutil/map";
 
 const iter = map([1, 2, 3], (value) => value * 2);
-console.log([...iter]); // [2, 4, 6]
+console.log(Array.from(iter)); // [2, 4, 6]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { map } from "@core/iterutil/async/map";
 
 const iter = map([1, 2, 3], (value) => value * 2);
-console.log(await toArray(iter)); // [2, 4, 6]
+console.log(await Array.fromAsync(iter)); // [2, 4, 6]
 ```
 
 ### pairwise
@@ -395,15 +382,14 @@ Returns an iterable that pairs adjacent elements from the input iterable.
 import { pairwise } from "@core/iterutil/pairwise";
 
 const iter = pairwise([1, 2, 3, 4, 5]);
-console.log([...iter]); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+console.log(Array.from(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { pairwise } from "@core/iterutil/async/pairwise";
 
 const iter = pairwise([1, 2, 3, 4, 5]);
-console.log(await toArray(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+console.log(await Array.fromAsync(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
 ```
 
 ### partition
@@ -436,8 +422,8 @@ Generates a range of numbers.
 ```ts
 import { range } from "@core/iterutil/range";
 
-console.log([...range(3)]); // [0, 1, 2]
-console.log([...range(1, 6, 2)]); // [1, 3, 5]
+console.log(Array.from(range(3))); // [0, 1, 2]
+console.log(Array.from(range(1, 6, 2))); // [1, 3, 5]
 ```
 
 ### reduce
@@ -498,15 +484,14 @@ Takes the first `limit` items from the iterable.
 import { take } from "@core/iterutil/take";
 
 const iter = take([1, 2, 3, 4, 5], 2);
-console.log([...iter]); // [1, 2]
+console.log(Array.from(iter)); // [1, 2]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { take } from "@core/iterutil/async/take";
 
 const iter = take([1, 2, 3, 4, 5], 2);
-console.log(await toArray(iter)); // [1, 2]
+console.log(await Array.fromAsync(iter)); // [1, 2]
 ```
 
 ### takeWhile
@@ -517,48 +502,14 @@ Takes elements from the iterable while the predicate is true.
 import { takeWhile } from "@core/iterutil/take-while";
 
 const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
-console.log([...iter]); // [1, 2, 3]
+console.log(Array.from(iter)); // [1, 2, 3]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { takeWhile } from "@core/iterutil/async/take-while";
 
 const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
-console.log(await toArray(iter)); // [1, 2, 3]
-```
-
-### toArray
-
-Converts an iterable to an array.
-
-```ts
-import { toArray } from "@core/iterutil/to-array";
-
-const arr = toArray(function* () {
-  yield 1;
-  yield 2;
-  yield 3;
-}());
-console.log(arr); // [1, 2, 3]
-```
-
-```ts
-import { toArray } from "@core/iterutil/async/to-array";
-
-const arr1 = await toArray(function* () {
-  yield 1;
-  yield 2;
-  yield 3;
-}());
-console.log(arr1); // [1, 2, 3]
-
-const arr2 = await toArray(async function* () {
-  yield 1;
-  yield 2;
-  yield 3;
-}());
-console.log(arr2); // [1, 2, 3]
+console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
 
 ### toAsyncIterable
@@ -566,11 +517,10 @@ console.log(arr2); // [1, 2, 3]
 Converts an iterable to an async iterable.
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { toAsyncIterable } from "@core/iterutil/async/to-async-iterable";
 
 const iter = toAsyncIterable([1, 2, 3]);
-console.log(await toArray(iter)); // [1, 2, 3]
+console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
 
 ### uniq
@@ -581,27 +531,26 @@ Returns an iterable that yields the unique elements of the input iterable.
 import { uniq } from "@core/iterutil/uniq";
 
 const iter1 = uniq([1, 2, 2, 3, 3, 3]);
-console.log([...iter1]); // [1, 2, 3]
+console.log(Array.from(iter1)); // [1, 2, 3]
 
 const iter2 = uniq(
   [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
   (v) => Math.floor(v / 10),
 );
-console.log([...iter2]); // [1, 10, 20, 30]
+console.log(Array.from(iter2)); // [1, 10, 20, 30]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { uniq } from "@core/iterutil/async/uniq";
 
 const iter1 = uniq([1, 2, 2, 3, 3, 3]);
-console.log(await toArray(iter1)); // [1, 2, 3]
+console.log(await Array.fromAsync(iter1)); // [1, 2, 3]
 
 const iter2 = uniq(
   [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
   (v) => Math.floor(v / 10),
 );
-console.log(await toArray(iter2)); // [1, 10, 20, 30]
+console.log(await Array.fromAsync(iter2)); // [1, 10, 20, 30]
 ```
 
 ### zip
@@ -612,15 +561,14 @@ Zips multiple iterables into a single iterable.
 import { zip } from "@core/iterutil/zip";
 
 const iter = zip([1, 2, 3], ["a", "b", "c"]);
-console.log([...iter]); // [[1, "a"], [2, "b"], [3, "c"]]
+console.log(Array.from(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
 ```
 
 ```ts
-import { toArray } from "@core/iterutil/async/to-array";
 import { zip } from "@core/iterutil/async/zip";
 
 const iter = zip([1, 2, 3], ["a", "b", "c"]);
-console.log(await toArray(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
+console.log(await Array.fromAsync(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
 ```
 
 ## License

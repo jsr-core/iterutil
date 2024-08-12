@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { filter } from "@core/iterutil/async/filter";
  *
  * const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
- * console.log(await toArray(iter)); // [2, 4]
+ * console.log(await Array.fromAsync(iter)); // [2, 4]
  * ```
  */
 export async function* filter<T>(

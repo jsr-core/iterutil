@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { takeWhile } from "@core/iterutil/async/take-while";
  *
  * const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
- * console.log(await toArray(iter)); // [1, 2, 3]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, 3]
  * ```
  */
 export async function* takeWhile<T>(

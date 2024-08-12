@@ -10,7 +10,7 @@
  * import { map } from "@core/iterutil/map";
  *
  * const iter = map([1, 2, 3], (value) => value * 2);
- * console.log([...iter]); // [2, 4, 6]
+ * console.log(Array.from(iter)); // [2, 4, 6]
  * ```
  */
 export function* map<T, U>(

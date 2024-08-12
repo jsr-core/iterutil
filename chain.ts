@@ -9,7 +9,7 @@
  * import { chain } from "@core/iterutil/chain";
  *
  * const iter = chain([1, 2], [3, 4]);
- * console.log([...iter]); // [1, 2, 3, 4]
+ * console.log(Array.from(iter)); // [1, 2, 3, 4]
  * ```
  *
  * @example With malformed iterables
@@ -17,7 +17,7 @@
  * import { chain } from "@core/iterutil/chain";
  *
  * const iter = chain([1, 2], ["a", "b"], [true]);
- * console.log([...iter]); // [1, 2, "a", "b", true]
+ * console.log(Array.from(iter)); // [1, 2, "a", "b", true]
  * ```
  */
 export function* chain<T extends Iterable<unknown>[]>(

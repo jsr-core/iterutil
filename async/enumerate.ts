@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { enumerate } from "@core/iterutil/async/enumerate";
  *
  * const iter = enumerate(["a", "b", "c"]);
- * console.log(await toArray(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
+ * console.log(await Array.fromAsync(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
  * ```
  */
 export async function* enumerate<T>(

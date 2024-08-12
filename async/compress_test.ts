@@ -1,7 +1,6 @@
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { toAsyncIterable } from "./to_async_iterable.ts";
-import { toArray } from "./to_array.ts";
 import { compress } from "./compress.ts";
 
 Deno.test("compress", async (t) => {
@@ -12,7 +11,7 @@ Deno.test("compress", async (t) => {
         toAsyncIterable([true, false, true, false, true]),
       );
       const expected = [1, 3, 5];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -22,7 +21,7 @@ Deno.test("compress", async (t) => {
         toAsyncIterable([true, false, true]),
       );
       const expected = [1, 3];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -32,7 +31,7 @@ Deno.test("compress", async (t) => {
         toAsyncIterable([true, false, true, false, true]),
       );
       const expected = [1, 3];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
   });
@@ -47,21 +46,21 @@ Deno.test("compress", async (t) => {
         true,
       ]);
       const expected = [1, 3, 5];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
     await t.step("the iterable is larger than the selectors", async () => {
       const result = compress([1, 2, 3, 4, 5], [true, false, true]);
       const expected = [1, 3];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
     await t.step("the iterable is smaller than the selector", async () => {
       const result = compress([1, 2, 3], [true, false, true, false, true]);
       const expected = [1, 3];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
   });

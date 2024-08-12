@@ -11,7 +11,7 @@
  * import { pairwise } from "@core/iterutil/pairwise";
  *
  * const iter = pairwise([1, 2, 3, 4, 5]);
- * console.log([...iter]); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+ * console.log(Array.from(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
  * ```
  */
 export function* pairwise<T>(iterable: Iterable<T>): Iterable<[T, T]> {

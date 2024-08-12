@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { compress } from "@core/iterutil/async/compress";
  *
  * const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
- * console.log(await toArray(iter)); // [1, 3, 5]
+ * console.log(await Array.fromAsync(iter)); // [1, 3, 5]
  * ```
  */
 export async function* compress<T>(

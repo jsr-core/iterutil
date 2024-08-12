@@ -10,7 +10,7 @@
  * import { flatMap } from "@core/iterutil/flat-map";
  *
  * const iter = flatMap([1, 2, 3], (value) => [value, value]);
- * console.log([...iter]); // [1, 1, 2, 2, 3, 3]
+ * console.log(Array.from(iter)); // [1, 1, 2, 2, 3, 3]
  * ```
  */
 export function* flatMap<T, U>(

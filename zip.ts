@@ -9,7 +9,7 @@
  * import { zip } from "@core/iterutil/zip";
  *
  * const iter = zip([1, 2, 3], ["a", "b", "c"]);
- * console.log([...iter]); // [[1, "a"], [2, "b"], [3, "c"]]
+ * console.log(Array.from(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
  * ```
  */
 export function* zip<U extends Iterable<unknown>[]>(

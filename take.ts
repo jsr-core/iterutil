@@ -11,7 +11,7 @@
  * import { take } from "@core/iterutil/take";
  *
  * const iter = take([1, 2, 3, 4, 5], 2);
- * console.log([...iter]); // [1, 2]
+ * console.log(Array.from(iter)); // [1, 2]
  * ```
  */
 export function take<T>(iterable: Iterable<T>, limit: number): Iterable<T> {

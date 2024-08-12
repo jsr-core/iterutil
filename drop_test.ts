@@ -6,7 +6,7 @@ Deno.test("drop", async (t) => {
   await t.step("with positive limit", () => {
     const result = drop([0, 1, 2, 3, 4], 2);
     const expected = [2, 3, 4];
-    assertEquals([...result], expected);
+    assertEquals(Array.from(result), expected);
     assertType<IsExact<typeof result, Iterable<number>>>(true);
   });
 
@@ -22,7 +22,7 @@ Deno.test("drop", async (t) => {
   await t.step("with 0 limit", () => {
     const result = drop([0, 1, 2, 3, 4], 0);
     const expected = [0, 1, 2, 3, 4];
-    assertEquals([...result], expected);
+    assertEquals(Array.from(result), expected);
     assertType<IsExact<typeof result, Iterable<number>>>(true);
   });
 });

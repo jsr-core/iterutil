@@ -7,7 +7,6 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { every } from "@core/iterutil/async/every";
  *
  * console.log(await every([1, 2, 3], (value) => value > 0)); // true

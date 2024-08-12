@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { flatMap } from "@core/iterutil/async/flat-map";
  *
  * const iter = flatMap([1, 2, 3], (value) => [value, value]);
- * console.log(await toArray(iter)); // [1, 1, 2, 2, 3, 3]
+ * console.log(await Array.fromAsync(iter)); // [1, 1, 2, 2, 3, 3]
  * ```
  */
 export async function* flatMap<T, U>(

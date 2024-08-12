@@ -10,7 +10,7 @@
  * import { takeWhile } from "@core/iterutil/take-while";
  *
  * const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
- * console.log([...iter]); // [1, 2, 3]
+ * console.log(Array.from(iter)); // [1, 2, 3]
  * ```
  */
 export function* takeWhile<T>(

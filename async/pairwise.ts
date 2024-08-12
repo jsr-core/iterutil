@@ -8,11 +8,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { pairwise } from "@core/iterutil/async/pairwise";
  *
  * const iter = pairwise([1, 2, 3, 4, 5]);
- * console.log(await toArray(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+ * console.log(await Array.fromAsync(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
  * ```
  */
 export async function* pairwise<T>(

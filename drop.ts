@@ -11,7 +11,7 @@
  * import { drop } from "@core/iterutil/drop";
  *
  * const iter = drop([1, 2, 3, 4, 5], 2);
- * console.log([...iter]); // [3, 4, 5]
+ * console.log(Array.from(iter)); // [3, 4, 5]
  * ```
  */
 export function drop<T>(iterable: Iterable<T>, limit: number): Iterable<T> {

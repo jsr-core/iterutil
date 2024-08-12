@@ -7,11 +7,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { chunked } from "@core/iterutil/async/chunked";
  *
  * const iter = chunked([1, 2, 3, 4, 5], 2);
- * console.log(await toArray(iter)); // [[1, 2], [3, 4], [5]]
+ * console.log(await Array.fromAsync(iter)); // [[1, 2], [3, 4], [5]]
  * ```
  */
 export async function* chunked<T>(

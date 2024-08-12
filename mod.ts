@@ -24,6 +24,5 @@ export * from "./reduce.ts";
 export * from "./some.ts";
 export * from "./take.ts";
 export * from "./take_while.ts";
-export * from "./to_array.ts";
 export * from "./uniq.ts";
 export * from "./zip.ts";
