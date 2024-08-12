@@ -7,10 +7,10 @@ Deno.test("map", async (t) => {
   await t.step("with async iterable", async () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = map(toAsyncIterable([1, 2, 3, 4, 5]), (value, index) => {
-      values.push(value);
+    const result = map(toAsyncIterable([1, 2, 3, 4, 5]), (v, index) => {
+      values.push(v);
       indices.push(index);
-      return value * 2;
+      return v * 2;
     });
     const expected = [2, 4, 6, 8, 10];
     assertEquals(await Array.fromAsync(result), expected);
@@ -22,10 +22,10 @@ Deno.test("map", async (t) => {
   await t.step("with iterable (promise)", async () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = map(toAsyncIterable([1, 2, 3, 4, 5]), (value, index) => {
-      values.push(value);
+    const result = map(toAsyncIterable([1, 2, 3, 4, 5]), (v, index) => {
+      values.push(v);
       indices.push(index);
-      return Promise.resolve(value * 2);
+      return Promise.resolve(v * 2);
     });
     const expected = [2, 4, 6, 8, 10];
     assertEquals(await Array.fromAsync(result), expected);
@@ -37,10 +37,10 @@ Deno.test("map", async (t) => {
   await t.step("with iterable", async () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = map([1, 2, 3, 4, 5], (value, index) => {
-      values.push(value);
+    const result = map([1, 2, 3, 4, 5], (v, index) => {
+      values.push(v);
       indices.push(index);
-      return value * 2;
+      return v * 2;
     });
     const expected = [2, 4, 6, 8, 10];
     assertEquals(await Array.fromAsync(result), expected);
@@ -52,10 +52,10 @@ Deno.test("map", async (t) => {
   await t.step("with iterable (promise)", async () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = map([1, 2, 3, 4, 5], (value, index) => {
-      values.push(value);
+    const result = map([1, 2, 3, 4, 5], (v, index) => {
+      values.push(v);
       indices.push(index);
-      return Promise.resolve(value * 2);
+      return Promise.resolve(v * 2);
     });
     const expected = [2, 4, 6, 8, 10];
     assertEquals(await Array.fromAsync(result), expected);

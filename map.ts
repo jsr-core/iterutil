@@ -1,6 +1,12 @@
 /**
  * Maps an iterable with a function.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/for-each forEach} to call a function for each value.
+ * Use {@linkcode https://jsr.io/@core/iterutil/flat-map flatMap} to map and flatten the result.
+ * Use {@linkcode https://jsr.io/@core/iterutil/flatten flatten} to flatten an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to map asynchronously.
+ *
  * @param iterable The iterable to map.
  * @param fn The function to map with.
  * @returns The mapped iterable.
@@ -9,7 +15,10 @@
  * ```ts
  * import { map } from "@core/iterutil/map";
  *
- * const iter = map([1, 2, 3], (value) => value * 2);
+ * const iter = map(
+ *   [1, 2, 3],
+ *   (v) => v * 2,
+ * );
  * console.log(Array.from(iter)); // [2, 4, 6]
  * ```
  */

@@ -5,10 +5,10 @@ import { map } from "./map.ts";
 Deno.test("map", () => {
   const values: number[] = [];
   const indices: number[] = [];
-  const result = map([1, 2, 3, 4, 5], (value, index) => {
-    values.push(value);
+  const result = map([1, 2, 3, 4, 5], (v, index) => {
+    values.push(v);
     indices.push(index);
-    return value * 2;
+    return v * 2;
   });
   const expected = [2, 4, 6, 8, 10];
   assertEquals(Array.from(result), expected);
