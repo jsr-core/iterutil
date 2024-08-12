@@ -4,9 +4,9 @@
  * The first element that does not match the predicate is included in the output.
  * If the predicate never returns false, the output will be an empty iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/drop drop} to drop a specific number of elements.
- * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take a specific number of elements.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/drop-while dropWhile} to drop elements asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/drop/~/drop drop} to drop a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/take/~/take take} to take a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/drop-while/~/dropWhile dropWhile} to drop elements asynchronously.
  *
  * @param iterable The iterable to drop elements from.
  * @param fn The predicate function to drop elements with.

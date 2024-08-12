@@ -1,8 +1,8 @@
 /**
  * Returns an infinite iterable that cycles through the given iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/take take} to limit the number of items of the cycled iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/cycle cycle} to cycle the iterable synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/take/~/take take} to limit the number of items of the cycled iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/cycle/~/cycle cycle} to cycle the iterable synchronously.
  *
  * @param iterable The iterable to cycle.
  * @returns The cycled iterable.

@@ -3,9 +3,9 @@
  *
  * Note that it will stop consuming the iterable once `limit` items are taken.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/take-while takeWhile} to take items while the predicate returns true.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/drop drop} to drop items from the beginning.
- * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take items synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/take-while/~/takeWhile takeWhile} to take items while the predicate returns true.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/drop/~/drop drop} to drop items from the beginning.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/take/~/take take} to take items synchronously.
  *
  * @param iterable The iterable to take items from.
  * @param limit The number of items to take. It must be 0 or positive safe integer.

@@ -2,10 +2,10 @@
  * Returns the first element in the iterable that satisfies the provided
  * testing function. Otherwise, undefined is returned.
  *
- * Use {@link https://jsr.io/@core/iterutil/async/first first} to get the first element.
- * Use {@link https://jsr.io/@core/iterutil/async/last last} to get the last element.
- * Use {@link https://jsr.io/@core/iterutil/async/filter filter} to filter elements.
- * Use {@link https://jsr.io/@core/iterutil/find find} to find elements synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/first/~/first first} to get the first element.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/last/~/last last} to get the last element.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/filter/~/filter filter} to filter elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/find/~/find find} to find elements synchronously.
  *
  * @param iterable The iterable to search.
  * @param fn The function to test with.

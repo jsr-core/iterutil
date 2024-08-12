@@ -8,9 +8,9 @@
  *
  * If the iterable is empty, this function returns false.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/every every} to check if every
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/every/~/every every} to check if every
  * element satisfies the provided function.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/some some} to check asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/some/~/some some} to check asynchronously.
  *
  * @param iterable The iterable to check.
  * @param fn The function to check with.

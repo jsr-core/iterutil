@@ -1,11 +1,11 @@
 /**
  * Maps an iterable with a function.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values.
- * Use {@linkcode https://jsr.io/@core/iterutil/for-each forEach} to call a function for each value.
- * Use {@linkcode https://jsr.io/@core/iterutil/flat-map flatMap} to map and flatten the result.
- * Use {@linkcode https://jsr.io/@core/iterutil/flatten flatten} to flatten an iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to map asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/filter/~/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/for-each/~/forEach forEach} to call a function for each value.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/flat-map/~/flatMap flatMap} to map and flatten the result.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/flatten/~/flatten flatten} to flatten an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/map/~/map map} to map asynchronously.
  *
  * @param iterable The iterable to map.
  * @param fn The function to map with.

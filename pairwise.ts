@@ -3,7 +3,7 @@
  *
  * When the input iterable has a finite number of items `n`, the output iterable will have `n - 1` items.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/pairwise pairwise} to pair elements from an iterable asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/pairwise/~/pairwise pairwise} to pair elements from an iterable asynchronously.
  *
  * @param iterable The iterable to pair elements from.
  * @returns The paired iterable.

@@ -3,8 +3,8 @@
  *
  * The last chunk may have less than `size` elements.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/flatten flatten} to flatten the chunks.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/chunked chunked} to chunk iterables asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/flatten/~/flatten flatten} to flatten the chunks.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/chunked/~/chunked chunked} to chunk iterables asynchronously.
  *
  * @param iterable The iterable to chunk.
  * @param size The size of each chunk.

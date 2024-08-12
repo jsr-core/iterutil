@@ -1,9 +1,9 @@
 /**
  * Drops the first `limit` items from the iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/drop-while dropWhile} to drop items while a condition is met.
- * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take a specific number of items from an iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/drop drop} to drop items asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/drop-while/~/dropWhile dropWhile} to drop items while a condition is met.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/take/~/take take} to take a specific number of items from an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/drop/~/drop drop} to drop items asynchronously.
  *
  * @param iterable The iterable to drop items from.
  * @param limit The number of items to drop. It must be 0 or positive safe integer.

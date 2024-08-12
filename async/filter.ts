@@ -1,11 +1,11 @@
 /**
  * Filters an iterable based on a function.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/compact compact} to remove nullish values.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/compress compress} to remove values based on an iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to transform the values.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce the values.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/compact/~/compact compact} to remove nullish values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/compress/~/compress compress} to remove values based on an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/map/~/map map} to transform the values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/reduce/~/reduce reduce} to reduce the values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/filter/~/filter filter} to filter synchronously.
  *
  * @params iterable The iterable to filter.
  * @params fn The function to filter with.
