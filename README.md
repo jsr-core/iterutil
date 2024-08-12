@@ -10,9 +10,66 @@ as possible.
 
 ## Usage
 
-Modules exported from the root of the package are for synchronous iterables
-(`Iterable`). Modules exported from the `async` submodule of the package are for
-both synchronous and asynchronous iterables (`Iterable` and `AsyncIterable`).
+To apply single operation to an iterable, use modules under the root.
+
+```ts
+import { map } from "@core/iterutil/map";
+
+const iter = map([1, 2, 3], (v) => v * 2);
+console.log(Array.from(iter)); // [2, 4, 6]
+```
+
+To apply single asynchronous operation to an (async) iterable, use modules under
+the `async` submodule.
+
+```ts
+import { map } from "@core/iterutil/async/map";
+
+const iter = map([1, 2, 3], (v) => Promise.resolve(v * 2));
+console.log(await Array.fromAsync(iter)); // [2, 4, 6]
+```
+
+To apply multiple operations to an iterable, use the modules under the `pipe`
+submodule with the [@core/pipe] package.
+
+```ts
+import { pipe } from "@core/pipe";
+import { cycle } from "@core/iterutil/pipe/cycle";
+import { filter } from "@core/iterutil/pipe/filter";
+import { map } from "@core/iterutil/pipe/map";
+import { take } from "@core/iterutil/pipe/take";
+
+const iter = pipe(
+  [1, 2, 3],
+  map((v) => v * 2),
+  cycle,
+  take(10),
+  filter((v) => v % 2 === 0),
+);
+console.log(Array.from(iter)); // [2, 4, 6, 2, 4, 6, 2, 4, 6, 2]
+```
+
+To apply multiple asynchronous operations to an (async) iterable, use the
+modules under the `pipe/async` submodule with the [@core/pipe] package.
+
+```ts
+import { pipe } from "@core/pipe";
+import { cycle } from "@core/iterutil/pipe/async/cycle";
+import { filter } from "@core/iterutil/pipe/async/filter";
+import { map } from "@core/iterutil/pipe/async/map";
+import { take } from "@core/iterutil/pipe/async/take";
+
+const iter = pipe(
+  [1, 2, 3],
+  map((v) => Promise.resolve(v * 2)),
+  cycle,
+  take(10),
+  filter((v) => Promise.resolve(v % 2 === 0)),
+);
+console.log(await Array.fromAsync(iter)); // [2, 4, 6, 2, 4, 6, 2, 4, 6, 2]
+```
+
+[@core/pipe]: https://jsr.io/@core/pipe
 
 ### chain
 
@@ -29,6 +86,30 @@ console.log(Array.from(iter)); // [1, 2, "a", "b", true, false]
 import { chain } from "@core/iterutil/async/chain";
 
 const iter = chain([1, 2], ["a", "b"], [true, false]);
+console.log(await Array.fromAsync(iter)); // [1, 2, "a", "b", true, false]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { chain } from "@core/iterutil/pipe/chain";
+
+const iter = pipe(
+  [1, 2],
+  chain(["a", "b"], [true, false]),
+);
+console.log(Array.from(iter)); // [1, 2, "a", "b", true, false]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { chain } from "@core/iterutil/pipe/async/chain";
+
+const iter = pipe(
+  [1, 2],
+  chain(["a", "b"], [true, false]),
+);
 console.log(await Array.fromAsync(iter)); // [1, 2, "a", "b", true, false]
 ```
 
@@ -50,6 +131,30 @@ const iter = chunked([1, 2, 3, 4, 5], 2);
 console.log(await Array.fromAsync(iter)); // [[1, 2], [3, 4], [5]]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { chunked } from "@core/iterutil/pipe/chunked";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  chunked(2),
+);
+console.log(Array.from(iter)); // [[1, 2], [3, 4], [5]]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { chunked } from "@core/iterutil/pipe/async/chunked";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  chunked(2),
+);
+console.log(await Array.fromAsync(iter)); // [[1, 2], [3, 4], [5]]
+```
+
 ### compact
 
 Removes all nullish (`null` or `undefined`) values from an iterable.
@@ -65,6 +170,30 @@ console.log(Array.from(iter)); // [1, 2, 3]
 import { compact } from "@core/iterutil/async/compact";
 
 const iter = compact([1, undefined, 2, null, 3]);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { compact } from "@core/iterutil/pipe/compact";
+
+const iter = pipe(
+  [1, undefined, 2, null, 3],
+  compact,
+);
+console.log(Array.from(iter)); // [1, 2, 3]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { compact } from "@core/iterutil/pipe/async/compact";
+
+const iter = pipe(
+  [1, undefined, 2, null, 3],
+  compact,
+);
 console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
 
@@ -88,6 +217,30 @@ import { compress } from "@core/iterutil/async/compress";
 const iter = compress(
   [1, 2, 3, 4, 5],
   [true, false, true, false, true],
+);
+console.log(await Array.fromAsync(iter)); // [1, 3, 5]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { compress } from "@core/iterutil/pipe/compress";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  compress([true, false, true, false, true]),
+);
+console.log(Array.from(iter)); // [1, 3, 5]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { compress } from "@core/iterutil/pipe/async/compress";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  compress([true, false, true, false, true]),
 );
 console.log(await Array.fromAsync(iter)); // [1, 3, 5]
 ```
@@ -125,6 +278,34 @@ const iter = cycle([1, 2, 3]);
 console.log(await Array.fromAsync(take(iter, 5))); // [1, 2, 3, 1, 2]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { cycle } from "@core/iterutil/pipe/cycle";
+import { take } from "@core/iterutil/pipe/take";
+
+const iter = pipe(
+  [1, 2, 3],
+  cycle,
+  take(5),
+);
+console.log(Array.from(iter)); // [1, 2, 3, 1, 2]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { cycle } from "@core/iterutil/pipe/async/cycle";
+import { take } from "@core/iterutil/pipe/async/take";
+
+const iter = pipe(
+  [1, 2, 3],
+  cycle,
+  take(5),
+);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 1, 2]
+```
+
 ### drop
 
 Drops the first `limit` items from the iterable.
@@ -140,6 +321,30 @@ console.log(Array.from(iter)); // [3, 4, 5]
 import { drop } from "@core/iterutil/async/drop";
 
 const iter = drop([1, 2, 3, 4, 5], 2);
+console.log(await Array.fromAsync(iter)); // [3, 4, 5]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { drop } from "@core/iterutil/pipe/drop";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  drop(2),
+);
+console.log(Array.from(iter)); // [3, 4, 5]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { drop } from "@core/iterutil/pipe/async/drop";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  drop(2),
+);
 console.log(await Array.fromAsync(iter)); // [3, 4, 5]
 ```
 
@@ -167,6 +372,30 @@ const iter = dropWhile(
 console.log(await Array.fromAsync(iter)); // [3, 4, 5]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { dropWhile } from "@core/iterutil/pipe/drop-while";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  dropWhile((v) => v < 3),
+);
+console.log(Array.from(iter)); // [3, 4, 5]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { dropWhile } from "@core/iterutil/pipe/async/drop-while";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  dropWhile((v) => v < 3),
+);
+console.log(await Array.fromAsync(iter)); // [3, 4, 5]
+```
+
 ### enumerate
 
 Enumerates an iterable.
@@ -182,6 +411,24 @@ console.log(Array.from(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
 import { enumerate } from "@core/iterutil/async/enumerate";
 
 const iter = enumerate(["a", "b", "c"]);
+console.log(await Array.fromAsync(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { enumerate } from "@core/iterutil/pipe/enumerate";
+
+const iter = pipe(["a", "b", "c"], enumerate);
+console.log(Array.from(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { enumerate } from "@core/iterutil/pipe/async/enumerate";
+
+const iter = pipe(["a", "b", "c"], enumerate);
 console.log(await Array.fromAsync(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
 ```
 
@@ -204,6 +451,24 @@ console.log(await every([1, 2, 3], (v) => v > 0)); // true
 console.log(await every([1, 2, 3], (v) => v > 1)); // false
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { every } from "@core/iterutil/pipe/every";
+
+console.log(pipe([1, 2, 3], every((v) => v > 0))); // true
+console.log(pipe([1, 2, 3], every((v) => v > 1))); // false
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { every } from "@core/iterutil/pipe/async/every";
+
+console.log(await pipe([1, 2, 3], every((v) => v > 0))); // true
+console.log(await pipe([1, 2, 3], every((v) => v > 1))); // false
+```
+
 ### filter
 
 Filters an iterable based on a function.
@@ -224,6 +489,30 @@ import { filter } from "@core/iterutil/async/filter";
 const iter = filter(
   [1, 2, 3, 4, 5],
   (v) => v % 2 === 0,
+);
+console.log(await Array.fromAsync(iter)); // [2, 4]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { filter } from "@core/iterutil/pipe/filter";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  filter((v) => v % 2 === 0),
+);
+console.log(Array.from(iter)); // [2, 4]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { filter } from "@core/iterutil/pipe/async/filter";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  filter((v) => v % 2 === 0),
 );
 console.log(await Array.fromAsync(iter)); // [2, 4]
 ```
@@ -253,6 +542,30 @@ const value = await find(
 console.log(value); // 2
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { find } from "@core/iterutil/pipe/find";
+
+const value = pipe(
+  [1, 2, 3, 4, 5],
+  find((v) => v % 2 === 0),
+);
+console.log(value); // 2
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { find } from "@core/iterutil/pipe/async/find";
+
+const value = await pipe(
+  [1, 2, 3, 4, 5],
+  find((v) => v % 2 === 0),
+);
+console.log(value); // 2
+```
+
 ### first
 
 Returns the first element of an iterable. If the iterable is empty, returns
@@ -269,6 +582,24 @@ console.log(result); // 1
 import { first } from "@core/iterutil/async/first";
 
 const result = await first([1, 2, 3]);
+console.log(result); // 1
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { first } from "@core/iterutil/pipe/first";
+
+const result = pipe([1, 2, 3], first);
+console.log(result); // 1
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { first } from "@core/iterutil/pipe/async/first";
+
+const result = await pipe([1, 2, 3], first);
 console.log(result); // 1
 ```
 
@@ -296,6 +627,30 @@ const iter = flatMap(
 console.log(await Array.fromAsync(iter)); // [1, 1, 2, 2, 3, 3]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { flatMap } from "@core/iterutil/pipe/flat-map";
+
+const iter = pipe(
+  [1, 2, 3],
+  flatMap((v) => [v, v]),
+);
+console.log(Array.from(iter)); // [1, 1, 2, 2, 3, 3]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { flatMap } from "@core/iterutil/pipe/async/flat-map";
+
+const iter = pipe(
+  [1, 2, 3],
+  flatMap((v) => [v, v]),
+);
+console.log(await Array.fromAsync(iter)); // [1, 1, 2, 2, 3, 3]
+```
+
 ### flatten
 
 Flattens an iterable of iterables into a single iterable.
@@ -314,6 +669,30 @@ const iter = flatten([[1, 2], [3, 4], [5]]);
 console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4, 5]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { flatten } from "@core/iterutil/pipe/flatten";
+
+const iter = pipe(
+  [[1, 2], [3, 4], [5]],
+  flatten,
+);
+console.log(Array.from(iter)); // [1, 2, 3, 4, 5]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { flatten } from "@core/iterutil/pipe/async/flatten";
+
+const iter = pipe(
+  [[1, 2], [3, 4], [5]],
+  flatten,
+);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4, 5]
+```
+
 ### forEach
 
 Calls a function for each value in an iterable.
@@ -329,6 +708,32 @@ forEach([1, 2, 3], (v) => console.log(v));
 ```ts
 import { forEach } from "@core/iterutil/async/for-each";
 await forEach([1, 2, 3], (v) => console.log(v));
+// 1
+// 2
+// 3
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { forEach } from "@core/iterutil/pipe/for-each";
+pipe(
+  [1, 2, 3],
+  forEach((v) => console.log(v)),
+);
+// 1
+// 2
+// 3
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { forEach } from "@core/iterutil/pipe/async/for-each";
+await pipe(
+  [1, 2, 3],
+  forEach((v) => console.log(v)),
+);
 // 1
 // 2
 // 3
@@ -386,6 +791,24 @@ console.log(await last([1, 2, 3])); // 3
 console.log(await last([])); // undefined
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { last } from "@core/iterutil/pipe/last";
+
+console.log(pipe([1, 2, 3], last)); // 3
+console.log(pipe([], last)); // undefined
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { last } from "@core/iterutil/pipe/async/last";
+
+console.log(await pipe([1, 2, 3], last)); // 3
+console.log(await pipe([], last)); // undefined
+```
+
 ### map
 
 Maps an iterable with a function.
@@ -410,6 +833,30 @@ const iter = map(
 console.log(await Array.fromAsync(iter)); // [2, 4, 6]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { map } from "@core/iterutil/pipe/map";
+
+const iter = pipe(
+  [1, 2, 3],
+  map((v) => v * 2),
+);
+console.log(Array.from(iter)); // [2, 4, 6]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { map } from "@core/iterutil/pipe/async/map";
+
+const iter = pipe(
+  [1, 2, 3],
+  map((v) => v * 2),
+);
+console.log(await Array.fromAsync(iter)); // [2, 4, 6]
+```
+
 ### pairwise
 
 Returns an iterable that pairs adjacent elements from the input iterable.
@@ -425,6 +872,30 @@ console.log(Array.from(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
 import { pairwise } from "@core/iterutil/async/pairwise";
 
 const iter = pairwise([1, 2, 3, 4, 5]);
+console.log(await Array.fromAsync(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { pairwise } from "@core/iterutil/pipe/pairwise";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  pairwise,
+);
+console.log(Array.from(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { pairwise } from "@core/iterutil/pipe/async/pairwise";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  pairwise,
+);
 console.log(await Array.fromAsync(iter)); // [[1, 2], [2, 3], [3, 4], [4, 5]]
 ```
 
@@ -449,6 +920,32 @@ import { partition } from "@core/iterutil/async/partition";
 const [even, odd] = await partition(
   [1, 2, 3, 4, 5],
   (v) => v % 2 === 0,
+);
+console.log(even); // [2, 4]
+console.log(odd); // [1, 3, 5]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { partition } from "@core/iterutil/pipe/partition";
+
+const [even, odd] = pipe(
+  [1, 2, 3, 4, 5],
+  partition((v) => v % 2 === 0),
+);
+console.log(even); // [2, 4]
+console.log(odd); // [1, 3, 5]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { partition } from "@core/iterutil/pipe/async/partition";
+
+const [even, odd] = await pipe(
+  [1, 2, 3, 4, 5],
+  partition((v) => v % 2 === 0),
 );
 console.log(even); // [2, 4]
 console.log(odd); // [1, 3, 5]
@@ -503,6 +1000,42 @@ const joined = await reduce(
 console.log(joined); // 12345
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { reduce } from "@core/iterutil/pipe/reduce";
+
+const sum = pipe(
+  [1, 2, 3, 4, 5],
+  reduce((acc, v) => acc + v),
+);
+console.log(sum); // 15
+
+const joined = pipe(
+  [1, 2, 3, 4, 5],
+  reduce((acc, v) => acc + v, ""),
+);
+console.log(joined); // 12345
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { reduce } from "@core/iterutil/pipe/async/reduce";
+
+const sum = await pipe(
+  [1, 2, 3, 4, 5],
+  reduce((acc, v) => acc + v),
+);
+console.log(sum); // 15
+
+const joined = await pipe(
+  [1, 2, 3, 4, 5],
+  reduce((acc, v) => acc + v, ""),
+);
+console.log(joined); // 12345
+```
+
 ### some
 
 Returns true if at least one element in the iterable satisfies the provided
@@ -521,6 +1054,24 @@ console.log(await some([1, 2, 3], (v) => v % 2 === 0)); // true
 console.log(await some([1, 3, 5], (v) => v % 2 === 0)); // false
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { some } from "@core/iterutil/pipe/some";
+
+console.log(pipe([1, 2, 3], some((v) => v % 2 === 0))); // true
+console.log(pipe([1, 3, 5], some((v) => v % 2 === 0))); // false
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { some } from "@core/iterutil/pipe/async/some";
+
+console.log(await pipe([1, 2, 3], some((v) => v % 2 === 0))); // true
+console.log(await pipe([1, 3, 5], some((v) => v % 2 === 0))); // false
+```
+
 ### take
 
 Takes the first `limit` items from the iterable.
@@ -536,6 +1087,30 @@ console.log(Array.from(iter)); // [1, 2]
 import { take } from "@core/iterutil/async/take";
 
 const iter = take([1, 2, 3, 4, 5], 2);
+console.log(await Array.fromAsync(iter)); // [1, 2]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { take } from "@core/iterutil/pipe/take";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  take(2),
+);
+console.log(Array.from(iter)); // [1, 2]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { take } from "@core/iterutil/pipe/async/take";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  take(2),
+);
 console.log(await Array.fromAsync(iter)); // [1, 2]
 ```
 
@@ -559,6 +1134,30 @@ import { takeWhile } from "@core/iterutil/async/take-while";
 const iter = takeWhile(
   [1, 2, 3, 4, 5],
   (v) => v < 4,
+);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { takeWhile } from "@core/iterutil/pipe/take-while";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  takeWhile((v) => v < 4),
+);
+console.log(Array.from(iter)); // [1, 2, 3]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { takeWhile } from "@core/iterutil/pipe/async/take-while";
+
+const iter = pipe(
+  [1, 2, 3, 4, 5],
+  takeWhile((v) => v < 4),
 );
 console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
@@ -604,6 +1203,42 @@ const iter2 = uniq(
 console.log(await Array.fromAsync(iter2)); // [1, 2, 3, 4]
 ```
 
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { uniq } from "@core/iterutil/pipe/uniq";
+
+const iter1 = pipe(
+  [1, 2, 2, 3, 3, 3],
+  uniq(),
+);
+console.log(Array.from(iter1)); // [1, 2, 3]
+
+const iter2 = pipe(
+  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  uniq((v) => v % 4),
+);
+console.log(Array.from(iter2)); // [1, 2, 3, 4]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { uniq } from "@core/iterutil/pipe/async/uniq";
+
+const iter1 = pipe(
+  [1, 2, 2, 3, 3, 3],
+  uniq(),
+);
+console.log(await Array.fromAsync(iter1)); // [1, 2, 3]
+
+const iter2 = pipe(
+  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  uniq((v) => v % 4),
+);
+console.log(await Array.fromAsync(iter2)); // [1, 2, 3, 4]
+```
+
 ### zip
 
 Zips multiple iterables into a single iterable.
@@ -619,6 +1254,30 @@ console.log(Array.from(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
 import { zip } from "@core/iterutil/async/zip";
 
 const iter = zip([1, 2, 3], ["a", "b", "c"]);
+console.log(await Array.fromAsync(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { zip } from "@core/iterutil/pipe/zip";
+
+const iter = pipe(
+  [1, 2, 3],
+  zip(["a", "b", "c"]),
+);
+console.log(Array.from(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { zip } from "@core/iterutil/pipe/async/zip";
+
+const iter = pipe(
+  [1, 2, 3],
+  zip(["a", "b", "c"]),
+);
 console.log(await Array.fromAsync(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
 ```
 

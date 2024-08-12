@@ -178,6 +178,8 @@
     "@core/iterutil/map": "./map.ts",
     "@core/iterutil/pairwise": "./pairwise.ts",
     "@core/iterutil/partition": "./partition.ts",
+    "@core/iterutil/pipe": "./pipe/mod.ts",
+    "@core/iterutil/pipe/async": "./pipe/async/mod.ts",
     "@core/iterutil/pipe/async/chain": "./pipe/async/chain.ts",
     "@core/iterutil/pipe/async/chunked": "./pipe/async/chunked.ts",
     "@core/iterutil/pipe/async/compact": "./pipe/async/compact.ts",
