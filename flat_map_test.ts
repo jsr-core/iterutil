@@ -6,10 +6,10 @@ Deno.test("flatMap", async (t) => {
   await t.step("single nest", () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = flatMap([1, 2, 3, 4, 5], (value, index) => {
-      values.push(value);
+    const result = flatMap([1, 2, 3, 4, 5], (v, index) => {
+      values.push(v);
       indices.push(index);
-      return [value, value];
+      return [v, v];
     });
     const expected = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
     assertEquals(Array.from(result), expected);
