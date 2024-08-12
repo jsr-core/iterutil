@@ -3,9 +3,9 @@
  *
  * The first value of the iterable is used as the initial value.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/map map} to transform values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce an iterable asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/reduce reduce} to reduce an iterable asynchronously.
  *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.
@@ -30,9 +30,9 @@ export function reduce<T>(
 /**
  * Reduces an iterable into a single value.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/map map} to transform values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce an iterable asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/reduce reduce} to reduce an iterable asynchronously.
  *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.

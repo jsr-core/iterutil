@@ -1,7 +1,7 @@
 /**
  * Generate a range of numbers.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/count count} to generate an infinite range.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/count count} to generate an infinite range.
  *
  * @param start The start of the range.
  * @param stop The end of the range.

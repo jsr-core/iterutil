@@ -4,8 +4,8 @@
  * The chained iterable will yield the elements of the first iterable, then the
  * elements of the second iterable, and so on.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/zip zip} to zip iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/chain chain} to chain iterables synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/zip zip} to zip iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/chain chain} to chain iterables synchronously.
  *
  * @param iterables The iterables to chain.
  * @returns The chained iterable.

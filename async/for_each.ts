@@ -1,9 +1,9 @@
 /**
  * Calls a function for each value in an iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to transform values.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/filter filter} to filter values.
- * Use {@linkcode https://jsr.io/@core/iterutil/for-each forEach} to iterate synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/map map} to transform values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/for-each forEach} to iterate synchronously.
  *
  * @param iterable The iterable to iterate over.
  * @param fn The function to call for each value.

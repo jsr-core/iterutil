@@ -3,9 +3,9 @@
  *
  * The first element is used as the initial value.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to transform values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/filter filter} to filter values of the iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/reduce reduce} to reduce an iterable synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/reduce reduce} to reduce an iterable synchronously.
  *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.

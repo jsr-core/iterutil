@@ -1,10 +1,10 @@
 /**
  * Maps each value in an iterable to an iterable, then flattens the result.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/map map} to map values to iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values.
- * Use {@linkcode https://jsr.io/@core/iterutil/flatten flatten} to flatten an iterable of iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/flat-map flatMap} to flat map an iterable asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/map map} to map values to iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/flatten flatten} to flatten an iterable of iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/flat-map flatMap} to flat map an iterable asynchronously.
  *
  * @param iterable The iterable to flat map.
  * @param fn The function to map with.

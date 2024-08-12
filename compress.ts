@@ -10,9 +10,9 @@
  * If the input iterable is shorter than the selector iterable, the output will
  * be truncated to the length of the input iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/compact compact} to remove nullish values.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to remove values based on a function.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/compress compress} to compress iterables asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/compact compact} to remove nullish values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/filter filter} to remove values based on a function.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/compress compress} to compress iterables asynchronously.
  *
  * @param iterable The iterable to compress.
  * @param selectors The selectors iterable to use.

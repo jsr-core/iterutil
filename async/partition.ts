@@ -1,7 +1,7 @@
 /**
  * Partitions an iterable into two arrays based on a selector function.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/partition partition} to partition synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/partition partition} to partition synchronously.
  *
  * @param iterable The iterable to partition.
  * @param selector The function to partition with.

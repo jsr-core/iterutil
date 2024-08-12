@@ -1,9 +1,9 @@
 /**
  * Returns the first element of an iterable. If the iterable is empty, returns `undefined`.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/last last} to get the last element of an iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/find find} to get the first element that matches a predicate.
- * Use {@linkcode https://jsr.io/@core/iterutil/first first} to get the first element synchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/last last} to get the last element of an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/find find} to get the first element that matches a predicate.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/first first} to get the first element synchronously.
  *
  * @param iterable The iterable to get the first element from.
  * @returns The first element of the iterable, or `undefined` if the iterable is empty.

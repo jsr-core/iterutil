@@ -1,8 +1,8 @@
 /**
  * Converts an iterable to an iterable iterator.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/to-async-iterable toAsyncIterable} for converting an async iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/iter iter} for `IterableIterator`.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/to-async-iterable toAsyncIterable} for converting an async iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/iter iter} for `IterableIterator`.
  *
  * @param iterable The iterable to convert.
  * @returns The iterable iterator.

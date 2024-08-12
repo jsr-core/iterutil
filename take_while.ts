@@ -1,9 +1,9 @@
 /**
  * Takes elements from the iterable while the predicate is true.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take a specific number of elements.
- * Use {@linkcode https://jsr.io/@core/iterutil/drop drop} to drop a specific number of elements.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/take-while takeWhile} to take elements asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/take take} to take a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/drop drop} to drop a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/~/async/take-while takeWhile} to take elements asynchronously.
  *
  * @param iterable The iterable to take elements from.
  * @param fn The predicate to take elements with.
