@@ -21,15 +21,15 @@ Chains multiple iterables together.
 ```ts
 import { chain } from "@core/iterutil/chain";
 
-const iter = chain([1, 2], [3, 4]);
-console.log(Array.from(iter)); // [1, 2, 3, 4]
+const iter = chain([1, 2], ["a", "b"], [true, false]);
+console.log(Array.from(iter)); // [1, 2, "a", "b", true, false]
 ```
 
 ```ts
 import { chain } from "@core/iterutil/async/chain";
 
-const iter = chain([1, 2], [3, 4]);
-console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4]
+const iter = chain([1, 2], ["a", "b"], [true, false]);
+console.log(await Array.fromAsync(iter)); // [1, 2, "a", "b", true, false]
 ```
 
 ### chunked
@@ -75,14 +75,20 @@ Compresses an iterable by selecting elements using a selector iterable.
 ```ts
 import { compress } from "@core/iterutil/compress";
 
-const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
+const iter = compress(
+  [1, 2, 3, 4, 5],
+  [true, false, true, false, true],
+);
 console.log(Array.from(iter)); // [1, 3, 5]
 ```
 
 ```ts
 import { compress } from "@core/iterutil/async/compress";
 
-const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
+const iter = compress(
+  [1, 2, 3, 4, 5],
+  [true, false, true, false, true],
+);
 console.log(await Array.fromAsync(iter)); // [1, 3, 5]
 ```
 
@@ -144,14 +150,20 @@ Drops elements from the iterable while the predicate returns true.
 ```ts
 import { dropWhile } from "@core/iterutil/drop-while";
 
-const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
+const iter = dropWhile(
+  [1, 2, 3, 4, 5],
+  (v) => v < 3,
+);
 console.log(Array.from(iter)); // [3, 4, 5]
 ```
 
 ```ts
 import { dropWhile } from "@core/iterutil/async/drop-while";
 
-const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
+const iter = dropWhile(
+  [1, 2, 3, 4, 5],
+  (v) => v < 3,
+);
 console.log(await Array.fromAsync(iter)); // [3, 4, 5]
 ```
 
@@ -181,15 +193,15 @@ function.
 ```ts
 import { every } from "@core/iterutil/every";
 
-console.log(every([1, 2, 3], (value) => value > 0)); // true
-console.log(every([1, 2, 3], (value) => value > 1)); // false
+console.log(every([1, 2, 3], (v) => v > 0)); // true
+console.log(every([1, 2, 3], (v) => v > 1)); // false
 ```
 
 ```ts
 import { every } from "@core/iterutil/async/every";
 
-console.log(await every([1, 2, 3], (value) => value > 0)); // true
-console.log(await every([1, 2, 3], (value) => value > 1)); // false
+console.log(await every([1, 2, 3], (v) => v > 0)); // true
+console.log(await every([1, 2, 3], (v) => v > 1)); // false
 ```
 
 ### filter
@@ -199,14 +211,20 @@ Filters an iterable based on a function.
 ```ts
 import { filter } from "@core/iterutil/filter";
 
-const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+const iter = filter(
+  [1, 2, 3, 4, 5],
+  (v) => v % 2 === 0,
+);
 console.log(Array.from(iter)); // [2, 4]
 ```
 
 ```ts
 import { filter } from "@core/iterutil/async/filter";
 
-const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+const iter = filter(
+  [1, 2, 3, 4, 5],
+  (v) => v % 2 === 0,
+);
 console.log(await Array.fromAsync(iter)); // [2, 4]
 ```
 
@@ -218,14 +236,20 @@ function. Otherwise, undefined is returned.
 ```ts
 import { find } from "@core/iterutil/find";
 
-const value = find([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+const value = find(
+  [1, 2, 3, 4, 5],
+  (v) => v % 2 === 0,
+);
 console.log(value); // 2
 ```
 
 ```ts
 import { find } from "@core/iterutil/async/find";
 
-const value = await find([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+const value = await find(
+  [1, 2, 3, 4, 5],
+  (v) => v % 2 === 0,
+);
 console.log(value); // 2
 ```
 
@@ -237,15 +261,15 @@ Returns the first element of an iterable. If the iterable is empty, returns
 ```ts
 import { first } from "@core/iterutil/first";
 
-const value = first([1, 2, 3]);
-console.log(value); // 1
+const result = first([1, 2, 3]);
+console.log(result); // 1
 ```
 
 ```ts
 import { first } from "@core/iterutil/async/first";
 
-const value = await first([1, 2, 3]);
-console.log(value); // 1
+const result = await first([1, 2, 3]);
+console.log(result); // 1
 ```
 
 ### flatMap
@@ -255,14 +279,20 @@ Maps each value in an iterable to an iterable, then flattens the result.
 ```ts
 import { flatMap } from "@core/iterutil/flat-map";
 
-const iter = flatMap([1, 2, 3], (value) => [value, value]);
+const iter = flatMap(
+  [1, 2, 3],
+  (v) => [v, v],
+);
 console.log(Array.from(iter)); // [1, 1, 2, 2, 3, 3]
 ```
 
 ```ts
 import { flatMap } from "@core/iterutil/async/flat-map";
 
-const iter = flatMap([1, 2, 3], (value) => [value, value]);
+const iter = flatMap(
+  [1, 2, 3],
+  (v) => [v, v],
+);
 console.log(await Array.fromAsync(iter)); // [1, 1, 2, 2, 3, 3]
 ```
 
@@ -290,7 +320,7 @@ Calls a function for each value in an iterable.
 
 ```ts
 import { forEach } from "@core/iterutil/for-each";
-forEach([1, 2, 3], console.log);
+forEach([1, 2, 3], (v) => console.log(v));
 // 1
 // 2
 // 3
@@ -298,7 +328,7 @@ forEach([1, 2, 3], console.log);
 
 ```ts
 import { forEach } from "@core/iterutil/async/for-each";
-await forEach([1, 2, 3], console.log);
+await forEach([1, 2, 3], (v) => console.log(v));
 // 1
 // 2
 // 3
@@ -363,14 +393,20 @@ Maps an iterable with a function.
 ```ts
 import { map } from "@core/iterutil/map";
 
-const iter = map([1, 2, 3], (value) => value * 2);
+const iter = map(
+  [1, 2, 3],
+  (v) => v * 2,
+);
 console.log(Array.from(iter)); // [2, 4, 6]
 ```
 
 ```ts
 import { map } from "@core/iterutil/async/map";
 
-const iter = map([1, 2, 3], (value) => value * 2);
+const iter = map(
+  [1, 2, 3],
+  (v) => v * 2,
+);
 console.log(await Array.fromAsync(iter)); // [2, 4, 6]
 ```
 
@@ -399,7 +435,10 @@ Partitions an iterable into two arrays based on a selector function.
 ```ts
 import { partition } from "@core/iterutil/partition";
 
-const [even, odd] = partition([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+const [even, odd] = partition(
+  [1, 2, 3, 4, 5],
+  (v) => v % 2 === 0,
+);
 console.log(even); // [2, 4]
 console.log(odd); // [1, 3, 5]
 ```
@@ -409,7 +448,7 @@ import { partition } from "@core/iterutil/async/partition";
 
 const [even, odd] = await partition(
   [1, 2, 3, 4, 5],
-  (value) => value % 2 === 0,
+  (v) => v % 2 === 0,
 );
 console.log(even); // [2, 4]
 console.log(odd); // [1, 3, 5]
@@ -422,6 +461,7 @@ Generates a range of numbers.
 ```ts
 import { range } from "@core/iterutil/range";
 
+console.log(Array.from(range(1, 3))); // [1, 2, 3]
 console.log(Array.from(range(1, 6, 2))); // [1, 3, 5]
 ```
 
@@ -432,12 +472,15 @@ Reduces an iterable into a single value.
 ```ts
 import { reduce } from "@core/iterutil/reduce";
 
-const sum = reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
+const sum = reduce(
+  [1, 2, 3, 4, 5],
+  (acc, v) => acc + v,
+);
 console.log(sum); // 15
 
 const joined = reduce(
   [1, 2, 3, 4, 5],
-  (acc, value) => acc + value.toString(),
+  (acc, v) => acc + v,
   "",
 );
 console.log(joined); // 12345
@@ -446,12 +489,15 @@ console.log(joined); // 12345
 ```ts
 import { reduce } from "@core/iterutil/async/reduce";
 
-const sum = await reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
+const sum = await reduce(
+  [1, 2, 3, 4, 5],
+  (acc, v) => acc + v,
+);
 console.log(sum); // 15
 
 const joined = await reduce(
   [1, 2, 3, 4, 5],
-  (acc, value) => acc + value.toString(),
+  (acc, v) => acc + v,
   "",
 );
 console.log(joined); // 12345
@@ -464,15 +510,15 @@ Returns true if at least one element in the iterable satisfies the provided
 ```ts
 import { some } from "@core/iterutil/some";
 
-console.log(some([1, 2, 3], (value) => value % 2 === 0)); // true
-console.log(some([1, 3, 5], (value) => value % 2 === 0)); // false
+console.log(some([1, 2, 3], (v) => v % 2 === 0)); // true
+console.log(some([1, 3, 5], (v) => v % 2 === 0)); // false
 ```
 
 ```ts
 import { some } from "@core/iterutil/async/some";
 
-console.log(await some([1, 2, 3], (value) => value % 2 === 0)); // true
-console.log(await some([1, 3, 5], (value) => value % 2 === 0)); // false
+console.log(await some([1, 2, 3], (v) => v % 2 === 0)); // true
+console.log(await some([1, 3, 5], (v) => v % 2 === 0)); // false
 ```
 
 ### take
@@ -500,14 +546,20 @@ Takes elements from the iterable while the predicate is true.
 ```ts
 import { takeWhile } from "@core/iterutil/take-while";
 
-const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
+const iter = takeWhile(
+  [1, 2, 3, 4, 5],
+  (v) => v < 4,
+);
 console.log(Array.from(iter)); // [1, 2, 3]
 ```
 
 ```ts
 import { takeWhile } from "@core/iterutil/async/take-while";
 
-const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
+const iter = takeWhile(
+  [1, 2, 3, 4, 5],
+  (v) => v < 4,
+);
 console.log(await Array.fromAsync(iter)); // [1, 2, 3]
 ```
 
@@ -533,10 +585,10 @@ const iter1 = uniq([1, 2, 2, 3, 3, 3]);
 console.log(Array.from(iter1)); // [1, 2, 3]
 
 const iter2 = uniq(
-  [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
-  (v) => Math.floor(v / 10),
+  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  (v) => v % 4,
 );
-console.log(Array.from(iter2)); // [1, 10, 20, 30]
+console.log(Array.from(iter2)); // [1, 2, 3, 4]
 ```
 
 ```ts
@@ -546,10 +598,10 @@ const iter1 = uniq([1, 2, 2, 3, 3, 3]);
 console.log(await Array.fromAsync(iter1)); // [1, 2, 3]
 
 const iter2 = uniq(
-  [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
-  (v) => Math.floor(v / 10),
+  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  (v) => v % 4,
 );
-console.log(await Array.fromAsync(iter2)); // [1, 10, 20, 30]
+console.log(await Array.fromAsync(iter2)); // [1, 2, 3, 4]
 ```
 
 ### zip
