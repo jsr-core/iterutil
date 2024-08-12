@@ -1,6 +1,12 @@
 /**
  * Reduces an iterable into a single value.
  *
+ * The first element is used as the initial value.
+ *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/reduce reduce} to reduce an iterable synchronously.
+ *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.
  * @returns The reduced value.
@@ -9,8 +15,11 @@
  * ```ts
  * import { reduce } from "@core/iterutil/async/reduce";
  *
- * const sum = await reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
- * console.log(sum); // 15
+ * const result = await reduce(
+ *   [1, 2, 3, 4, 5],
+ *   (a, v) => a + v,
+ * );
+ * console.log(result); // 15
  * ```
  */
 export function reduce<T>(
@@ -30,8 +39,12 @@ export function reduce<T>(
  * ```ts
  * import { reduce } from "@core/iterutil/async/reduce";
  *
- * const joined = await reduce([1, 2, 3, 4, 5], (acc, value) => acc + value.toString(), "");
- * console.log(joined); // 12345
+ * const result = await reduce(
+ *   [1, 2, 3, 4, 5],
+ *   (a, v) => a + v,
+ *   ""
+ * );
+ * console.log(result); // 12345
  * ```
  */
 export function reduce<T, U>(
