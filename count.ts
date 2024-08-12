@@ -5,8 +5,8 @@
  * If `start` is not provided, it defaults to `0`.
  * If `step` is not provided, it defaults to `1`.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/take take} to limit the number of items.
- * Use {@linkcode https://jsr.io/@core/iterutil/range range} to generate a sequence of numbers within a range.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/take/~/take take} to limit the number of items.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/range/~/range range} to generate a sequence of numbers within a range.
  *
  * @param start The number to start the sequence from.
  * @param step The step between each number in the sequence.

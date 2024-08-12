@@ -1,10 +1,10 @@
 /**
  * Flattens an iterable of iterables into a single iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/map map} to map values to iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values.
- * Use {@linkcode https://jsr.io/@core/iterutil/flat-map flatMap} to flat map an iterable.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/flatten flatten} to flatten an iterable of iterables asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/map/~/map map} to map values to iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/filter/~/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/flat-map/~/flatMap flatMap} to flat map an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/flatten/~/flatten flatten} to flatten an iterable of iterables asynchronously.
  *
  * @param iterable The iterable to flatten.
  * @returns The flattened iterable.

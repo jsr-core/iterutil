@@ -7,9 +7,9 @@
  * If the input iterables have different lengths, the resulting iterable will stop when the shortest input iterable is exhausted.
  * The remaining elements from the longer input iterables will be ignored.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/chain chain} to chain iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/enumerate enumerate} to zip with indices.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/zip async zip} to zip asynchronously.;w
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/chain/~/chain chain} to chain iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/enumerate/~/enumerate enumerate} to zip with indices.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/zip/~/async zip async zip} to zip asynchronously.;w
  *
  * @param iterables The iterables to zip.
  * @returns The zipped iterable.

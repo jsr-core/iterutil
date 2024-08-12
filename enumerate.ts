@@ -5,9 +5,9 @@
  * If `start` is not provided, it defaults to `0`.
  * If `step` is not provided, it defaults to `1`.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/zip zip} to zip iterable with other iterables.
- * Use {@linkcode https://jsr.io/@core/iterutil/count count} to generate an infinite sequence of numbers.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/enumerate enumerate} to enumerate asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/zip/~/zip zip} to zip iterable with other iterables.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/count/~/count count} to generate an infinite sequence of numbers.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/enumerate/~/enumerate enumerate} to enumerate asynchronously.
  *
  * @param iterable The iterable to enumerate.
  * @param start The starting index.

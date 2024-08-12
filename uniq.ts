@@ -1,7 +1,7 @@
 /**
  * Returns an iterable that yields the unique elements of the input iterable.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/async/uniq uniq} to get the unique elements asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/uniq/~/uniq uniq} to get the unique elements asynchronously.
  *
  * @param iterable The iterable to get the unique elements of.
  * @param identify An optional function to transform the elements before checking for uniqueness.

@@ -8,8 +8,8 @@
  *
  * If the iterable is empty, this function returns true.
  *
- * Use {@linkcode https://jsr.io/@core/iterutil/some some} to check if any element satisfies the function.
- * Use {@linkcode https://jsr.io/@core/iterutil/async/every every} to check asynchronously.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/some/~/some some} to check if any element satisfies the function.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/every/~/every every} to check asynchronously.
  *
  * @param iterable The iterable to check.
  * @param fn The function to check with.
