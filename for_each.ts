@@ -1,6 +1,10 @@
 /**
  * Calls a function for each value in an iterable.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/map map} to transform values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/for-each forEach} to iterate asynchronously.
+ *
  * @param iterable The iterable to iterate over.
  * @param fn The function to call for each value.
  *
@@ -8,7 +12,7 @@
  * ```ts
  * import { forEach } from "@core/iterutil/for-each";
  *
- * forEach([1, 2, 3], console.log);
+ * forEach([1, 2, 3], (v) => console.log(v));
  * // 1
  * // 2
  * // 3
