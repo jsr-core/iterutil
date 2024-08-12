@@ -1,6 +1,12 @@
 /**
  * Reduces an iterable into a single value.
  *
+ * The first value of the iterable is used as the initial value.
+ *
+ * Use {@linkcode https://jsr.io/@core/iterutil/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce an iterable asynchronously.
+ *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.
  * @returns The reduced value.
@@ -9,8 +15,11 @@
  * ```ts
  * import { reduce } from "@core/iterutil/reduce";
  *
- * const sum = reduce([1, 2, 3, 4, 5], (acc, value) => acc + value);
- * console.log(sum); // 15
+ * const result = reduce(
+ *   [1, 2, 3, 4, 5],
+ *   (a, v) => a + v,
+ * );
+ * console.log(result); // 15
  * ```
  */
 export function reduce<T>(
@@ -21,6 +30,10 @@ export function reduce<T>(
 /**
  * Reduces an iterable into a single value.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/map map} to transform values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter values of the iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce an iterable asynchronously.
+ *
  * @param iterable The iterable to reduce.
  * @param fn The function to reduce with.
  * @param initial The initial value to start reducing with.
@@ -30,8 +43,12 @@ export function reduce<T>(
  * ```ts
  * import { reduce } from "@core/iterutil/reduce";
  *
- * const joined = reduce([1, 2, 3, 4, 5], (acc, value) => acc + value.toString(), "");
- * console.log(joined); // 12345
+ * const result = reduce(
+ *   [1, 2, 3, 4, 5],
+ *   (a, v) => a + v,
+ *   "",
+ * );
+ * console.log(result); // 12345
  * ```
  */
 export function reduce<T, U>(

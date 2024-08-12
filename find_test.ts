@@ -6,10 +6,10 @@ Deno.test("find", async (t) => {
   await t.step("found", () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const result = find([1, 2, 3, 4, 5], (value, index) => {
-      values.push(value);
+    const result = find([1, 2, 3, 4, 5], (v, index) => {
+      values.push(v);
       indices.push(index);
-      return value % 2 === 0;
+      return v % 2 === 0;
     });
     const expected = 2;
     assertEquals(result, expected);

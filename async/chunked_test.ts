@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assertEquals, assertThrows } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { toAsyncIterable } from "./to_async_iterable.ts";
 import { chunked } from "./chunked.ts";
@@ -32,6 +32,17 @@ Deno.test("chunked", async (t) => {
       assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number[]>>>(true);
     });
+
+    await t.step("throws RangeError", async (t) => {
+      await t.step("if the length is not positive safe integer", () => {
+        assertThrows(() => chunked([], NaN), RangeError);
+        assertThrows(() => chunked([], Infinity), RangeError);
+        assertThrows(() => chunked([], -Infinity), RangeError);
+        assertThrows(() => chunked([], -1), RangeError);
+        assertThrows(() => chunked([], 1.1), RangeError);
+        assertThrows(() => chunked([], 0), RangeError);
+      });
+    });
   });
 
   await t.step("with iterable", async (t) => {
@@ -61,6 +72,17 @@ Deno.test("chunked", async (t) => {
       const expected = [[1, 2, 3, 4, 5]];
       assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number[]>>>(true);
+    });
+
+    await t.step("throws RangeError", async (t) => {
+      await t.step("if the length is not positive safe integer", () => {
+        assertThrows(() => chunked([], NaN), RangeError);
+        assertThrows(() => chunked([], Infinity), RangeError);
+        assertThrows(() => chunked([], -Infinity), RangeError);
+        assertThrows(() => chunked([], -1), RangeError);
+        assertThrows(() => chunked([], 1.1), RangeError);
+        assertThrows(() => chunked([], 0), RangeError);
+      });
     });
   });
 });

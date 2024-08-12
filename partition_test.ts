@@ -6,10 +6,10 @@ Deno.test("partition", async (t) => {
   await t.step("with non empty iterable", () => {
     const values: number[] = [];
     const indices: number[] = [];
-    const [left, right] = partition([1, 2, 3, 4, 5], (value, index) => {
-      values.push(value);
+    const [left, right] = partition([1, 2, 3, 4, 5], (v, index) => {
+      values.push(v);
       indices.push(index);
-      return value % 2 === 0;
+      return v % 2 === 0;
     });
     assertEquals(left, [2, 4]);
     assertEquals(right, [1, 3, 5]);

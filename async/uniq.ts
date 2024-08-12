@@ -18,21 +18,22 @@
  * import { uniq } from "@core/iterutil/async/uniq";
  *
  * const iter = uniq(
- *   [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
- *   (v) => Math.floor(v / 10),
+ *   [1, 2, 3, 4, 5, 6, 7, 8, 9],
+ *   (v) => v % 4,
  * );
- * console.log(await Array.fromAsync(iter)); // [1, 10, 20, 30]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4]
  * ```
  */
 export async function* uniq<T>(
   iterable: Iterable<T> | AsyncIterable<T>,
-  identify: (v: T) => unknown | Promise<unknown> = (v) => v,
+  identify: (v: T, index: number) => unknown | Promise<unknown> = (v) => v,
 ): AsyncIterable<T> {
   const set = new Set<unknown>();
+  let index = 0;
   for await (const item of iterable) {
-    const identity = await identify(item);
-    if (!set.has(identity)) {
-      set.add(identity);
+    const id = await identify(item, index++);
+    if (!set.has(id)) {
+      set.add(id);
       yield item;
     }
   }

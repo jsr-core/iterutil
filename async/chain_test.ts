@@ -4,45 +4,35 @@ import { toAsyncIterable } from "./to_async_iterable.ts";
 import { chain } from "./chain.ts";
 
 Deno.test("chain", async (t) => {
-  await t.step("with async iterable", async () => {
+  await t.step("with empty iterables", async () => {
+    const result = chain([] as number[], [] as string[]);
+    const expected = [] as (number | string)[];
+    assertEquals(await Array.fromAsync(result), expected);
+    assertType<IsExact<typeof result, AsyncIterable<number | string>>>(true);
+  });
+
+  await t.step("with iterables", async () => {
     const result = chain(
-      toAsyncIterable([1, 2]),
-      toAsyncIterable([3, 4]),
-      toAsyncIterable([5]),
+      [1, 2, 3],
+      toAsyncIterable(["a", "b"]),
     );
-    const expected = [1, 2, 3, 4, 5];
+    const expected = [1, 2, 3, "a", "b"];
     assertEquals(await Array.fromAsync(result), expected);
-    assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
+    assertType<IsExact<typeof result, AsyncIterable<number | string>>>(true);
   });
 
-  await t.step("with iterable", async () => {
-    const result = chain([1, 2], [3, 4], [5]);
-    const expected = [1, 2, 3, 4, 5];
-    assertEquals(await Array.fromAsync(result), expected);
-    assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
-  });
-
-  await t.step("with mixed iterable", async () => {
+  await t.step("with multiple iterables", async () => {
     const result = chain(
-      toAsyncIterable([1, 2]),
-      [3, 4],
-      toAsyncIterable([5]),
-    );
-    const expected = [1, 2, 3, 4, 5];
-    assertEquals(await Array.fromAsync(result), expected);
-    assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
-  });
-
-  await t.step("with malform iterable", async () => {
-    const result = chain(
-      toAsyncIterable([1, 2]),
+      toAsyncIterable([1, 2, 3]),
       ["a", "b"],
       toAsyncIterable([true]),
     );
-    const expected = [1, 2, "a", "b", true];
+    const expected = [1, 2, 3, "a", "b", true];
     assertEquals(await Array.fromAsync(result), expected);
     assertType<
       IsExact<typeof result, AsyncIterable<number | string | boolean>>
-    >(true);
+    >(
+      true,
+    );
   });
 });

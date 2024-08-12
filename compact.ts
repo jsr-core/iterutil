@@ -1,6 +1,10 @@
 /**
  * Removes all nullish (`null` or `undefined`) values from an iterable.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/compress compress} to remove values based on an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to remove values based on a function.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/compact compact} to compact iterables asynchronously.
+ *
  * @param iterable The iterable to compact.
  * @returns The compacted iterable.
  *

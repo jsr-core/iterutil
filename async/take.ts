@@ -1,10 +1,16 @@
 /**
  * Takes the first `limit` items from the iterable.
  *
+ * Note that it will stop consuming the iterable once `limit` items are taken.
+ *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/take-while takeWhile} to take items while the predicate returns true.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/drop drop} to drop items from the beginning.
+ * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take items synchronously.
+ *
  * @param iterable The iterable to take items from.
  * @param limit The number of items to take. It must be 0 or positive safe integer.
  * @returns The iterable with the first `limit` items taken.
- * @throws {TakeLimitError} If `limit` is less than 0 or non safe integer.
+ * @throws {RangeError} if `limit` is less than 0 or non safe integer.
  *
  * @example
  * ```ts
@@ -19,24 +25,20 @@ export function take<T>(
   limit: number,
 ): AsyncIterable<T> {
   if (limit < 0 || !Number.isSafeInteger(limit)) {
-    throw new TakeLimitError(limit);
+    throw new RangeError(
+      `limit must be 0 or positive safe integer, but got ${limit}.`,
+    );
+  }
+  if (limit === 0) {
+    return async function* () {}();
   }
   return async function* () {
-    let i = 0;
+    let i = 1;
     for await (const item of iterable) {
+      yield item;
       if (i++ >= limit) {
         break;
       }
-      yield item;
     }
   }();
-}
-
-/**
- * Error thrown when the 'limit' is negative or not a safe integer.
- */
-export class TakeLimitError extends Error {
-  constructor(limit: number) {
-    super(`The 'limit' must be 0 or positive safe integer, but got ${limit}.`);
-  }
 }

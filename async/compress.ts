@@ -1,6 +1,19 @@
 /**
  * Compresses an iterable by selecting elements using a selector iterable.
  *
+ * The compressed iterable will yield the elements of the iterable for which the
+ * corresponding selector is true.
+ *
+ * If the selector iterable is shorter than the input iterable, the output will
+ * be truncated to the length of the selector iterable.
+ *
+ * If the input iterable is shorter than the selector iterable, the output will
+ * be truncated to the length of the input iterable.
+ *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/compact compact} to remove nullish values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/filter filter} to remove values based on a function.
+ * Use {@linkcode https://jsr.io/@core/iterutil/compress compress} to compress iterables synchronously.
+ *
  * @param iterable The iterable to compress.
  * @param selectors The selectors to use.
  * @returns The compressed iterable.
@@ -9,7 +22,10 @@
  * ```ts
  * import { compress } from "@core/iterutil/async/compress";
  *
- * const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
+ * const iter = compress(
+ *   [1, 2, 3, 4, 5],
+ *   [true, false, true, false, true],
+ * );
  * console.log(await Array.fromAsync(iter)); // [1, 3, 5]
  * ```
  */

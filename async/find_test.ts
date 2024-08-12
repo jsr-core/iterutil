@@ -10,10 +10,10 @@ Deno.test("find", async (t) => {
       const indices: number[] = [];
       const result = await find(
         toAsyncIterable([1, 2, 3, 4, 5]),
-        (value, index) => {
-          values.push(value);
+        (v, index) => {
+          values.push(v);
           indices.push(index);
-          return value % 2 === 0;
+          return v % 2 === 0;
         },
       );
       const expected = 2;
@@ -28,10 +28,10 @@ Deno.test("find", async (t) => {
       const indices: number[] = [];
       const result = await find(
         toAsyncIterable([1, 2, 3, 4, 5]),
-        (value, index) => {
-          values.push(value);
+        (v, index) => {
+          values.push(v);
           indices.push(index);
-          return Promise.resolve(value % 2 === 0);
+          return Promise.resolve(v % 2 === 0);
         },
       );
       const expected = 2;
@@ -53,10 +53,10 @@ Deno.test("find", async (t) => {
     await t.step("found", async () => {
       const values: number[] = [];
       const indices: number[] = [];
-      const result = await find([1, 2, 3, 4, 5], (value, index) => {
-        values.push(value);
+      const result = await find([1, 2, 3, 4, 5], (v, index) => {
+        values.push(v);
         indices.push(index);
-        return value % 2 === 0;
+        return v % 2 === 0;
       });
       const expected = 2;
       assertEquals(result, expected);
@@ -68,10 +68,10 @@ Deno.test("find", async (t) => {
     await t.step("promise found", async () => {
       const values: number[] = [];
       const indices: number[] = [];
-      const result = await find([1, 2, 3, 4, 5], (value, index) => {
-        values.push(value);
+      const result = await find([1, 2, 3, 4, 5], (v, index) => {
+        values.push(v);
         indices.push(index);
-        return Promise.resolve(value % 2 === 0);
+        return Promise.resolve(v % 2 === 0);
       });
       const expected = 2;
       assertEquals(result, expected);

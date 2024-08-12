@@ -1,6 +1,12 @@
 /**
  * Filters an iterable based on a function.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/compact compact} to remove nullish values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/compress compress} to remove values based on an iterable.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/map map} to transform the values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/reduce reduce} to reduce the values.
+ * Use {@linkcode https://jsr.io/@core/iterutil/filter filter} to filter synchronously.
+ *
  * @params iterable The iterable to filter.
  * @params fn The function to filter with.
  * @returns The filtered iterable.
@@ -9,7 +15,10 @@
  * ```ts
  * import { filter } from "@core/iterutil/async/filter";
  *
- * const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
+ * const iter = filter(
+ *   [1, 2, 3, 4, 5],
+ *   (v) => v % 2 === 0,
+ * );
  * console.log(await Array.fromAsync(iter)); // [2, 4]
  * ```
  */

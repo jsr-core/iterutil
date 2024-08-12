@@ -1,6 +1,10 @@
 /**
  * Takes elements from the iterable while the predicate is true.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/take take} to take a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/drop drop} to drop a specific number of elements.
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/take-while takeWhile} to take elements asynchronously.
+ *
  * @param iterable The iterable to take elements from.
  * @param fn The predicate to take elements with.
  * @returns The taken iterable.
@@ -9,7 +13,10 @@
  * ```ts
  * import { takeWhile } from "@core/iterutil/take-while";
  *
- * const iter = takeWhile([1, 2, 3, 4, 5], (value) => value < 4);
+ * const iter = takeWhile(
+ *   [1, 2, 3, 4, 5],
+ *   (v) => v < 4,
+ * );
  * console.log(Array.from(iter)); // [1, 2, 3]
  * ```
  */

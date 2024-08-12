@@ -6,9 +6,17 @@ import { dropWhile } from "./drop_while.ts";
 Deno.test("dropWhile", async (t) => {
   await t.step("with async iterable", async (t) => {
     await t.step("with some true", async () => {
-      const result = dropWhile(toAsyncIterable([0, 1, 2, 3, 4]), (v) => v < 2);
-      const expected = [2, 3, 4];
+      const values: number[] = [];
+      const indices: number[] = [];
+      const result = dropWhile(toAsyncIterable([1, 2, 3, 4, 5]), (v, index) => {
+        values.push(v);
+        indices.push(index);
+        return v < 3;
+      });
+      const expected = [3, 4, 5];
       assertEquals(await Array.fromAsync(result), expected);
+      assertEquals(values, [1, 2, 3]);
+      assertEquals(indices, [0, 1, 2]);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -39,9 +47,17 @@ Deno.test("dropWhile", async (t) => {
 
   await t.step("with iterable", async (t) => {
     await t.step("with some true", async () => {
-      const result = dropWhile([0, 1, 2, 3, 4], (v) => v < 2);
-      const expected = [2, 3, 4];
+      const values: number[] = [];
+      const indices: number[] = [];
+      const result = dropWhile([1, 2, 3, 4, 5], (v, index) => {
+        values.push(v);
+        indices.push(index);
+        return v < 3;
+      });
+      const expected = [3, 4, 5];
       assertEquals(await Array.fromAsync(result), expected);
+      assertEquals(values, [1, 2, 3]);
+      assertEquals(indices, [0, 1, 2]);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 

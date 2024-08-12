@@ -1,6 +1,8 @@
 /**
  * Returns an iterable that yields the unique elements of the input iterable.
  *
+ * Use {@linkcode https://jsr.io/@core/iterutil/async/uniq uniq} to get the unique elements asynchronously.
+ *
  * @param iterable The iterable to get the unique elements of.
  * @param identify An optional function to transform the elements before checking for uniqueness.
  * @returns An iterable that yields the unique elements of the input iterable.
@@ -18,21 +20,22 @@
  * import { uniq } from "@core/iterutil/uniq";
  *
  * const iter = uniq(
- *   [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
- *   (v) => Math.floor(v / 10),
+ *   [1, 2, 3, 4, 5, 6, 7, 8, 9],
+ *   (v) => v % 4,
  * );
- * console.log(Array.from(iter)); // [1, 10, 20, 30]
+ * console.log(Array.from(iter)); // [1, 2, 3, 4]
  * ```
  */
 export function* uniq<T>(
   iterable: Iterable<T>,
-  identify: (v: T) => unknown = (v) => v,
+  identify: (value: T, index: number) => unknown = (v) => v,
 ): Iterable<T> {
   const set = new Set<unknown>();
+  let index = 0;
   for (const item of iterable) {
-    const identity = identify(item);
-    if (!set.has(identity)) {
-      set.add(identity);
+    const id = identify(item, index++);
+    if (!set.has(id)) {
+      set.add(id);
       yield item;
     }
   }
