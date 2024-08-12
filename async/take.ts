@@ -8,11 +8,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { take } from "@core/iterutil/async/take";
  *
  * const iter = take([1, 2, 3, 4, 5], 2);
- * console.log(await toArray(iter)); // [1, 2]
+ * console.log(await Array.fromAsync(iter)); // [1, 2]
  * ```
  */
 export function take<T>(

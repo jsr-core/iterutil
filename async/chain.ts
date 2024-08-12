@@ -6,20 +6,18 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { chain } from "@core/iterutil/async/chain";
  *
  * const iter = chain([1, 2], [3, 4]);
- * console.log(await toArray(iter)); // [1, 2, 3, 4]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4]
  * ```
  *
  * @example With malformed iterables
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { chain } from "@core/iterutil/async/chain";
  *
  * const iter = chain([1, 2], ["a", "b"], [true]);
- * console.log(await toArray(iter)); // [1, 2, "a", "b", true]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, "a", "b", true]
  * ```
  */
 export async function* chain<

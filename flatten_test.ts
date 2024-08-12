@@ -6,14 +6,14 @@ Deno.test("flatten", async (t) => {
   await t.step("single nest", () => {
     const result = flatten([[1, 2], [3, 4], [5]]);
     const expected = [1, 2, 3, 4, 5];
-    assertEquals([...result], expected);
+    assertEquals(Array.from(result), expected);
     assertType<IsExact<typeof result, Iterable<number>>>(true);
   });
 
   await t.step("multi nest", () => {
     const result = flatten([[[1, 2], [3, 4]], [[5]]]);
     const expected = [[1, 2], [3, 4], [5]];
-    assertEquals([...result], expected);
+    assertEquals(Array.from(result), expected);
     assertType<IsExact<typeof result, Iterable<number[]>>>(true);
   });
 });

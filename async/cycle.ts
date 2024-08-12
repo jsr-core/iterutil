@@ -6,12 +6,11 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { cycle } from "@core/iterutil/async/cycle";
  * import { take } from "@core/iterutil/async/take";
  *
  * const iter = cycle([1, 2, 3]);
- * console.log(await toArray(take(iter, 5))); // [1, 2, 3, 1, 2]
+ * console.log(await Array.fromAsync(take(iter, 5))); // [1, 2, 3, 1, 2]
  * ```
  */
 export async function* cycle<T>(

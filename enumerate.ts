@@ -10,7 +10,7 @@
  * import { enumerate } from "@core/iterutil/enumerate";
  *
  * const iter = enumerate(["a", "b", "c"]);
- * console.log([...iter]); // [[0, "a"], [1, "b"], [2, "c"]]
+ * console.log(Array.from(iter)); // [[0, "a"], [1, "b"], [2, "c"]]
  * ```
  */
 export function* enumerate<T>(

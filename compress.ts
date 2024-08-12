@@ -10,7 +10,7 @@
  * import { compress } from "@core/iterutil/compress";
  *
  * const iter = compress([1, 2, 3, 4, 5], [true, false, true, false, true]);
- * console.log([...iter]); // [1, 3, 5]
+ * console.log(Array.from(iter)); // [1, 3, 5]
  * ```
  */
 export function* compress<T>(

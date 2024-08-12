@@ -6,11 +6,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { flatten } from "@core/iterutil/async/flatten";
  *
  * const iter = flatten([[1, 2], [3, 4], [5]]);
- * console.log(await toArray(iter)); // [1, 2, 3, 4, 5]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, 3, 4, 5]
  * ```
  */
 export async function* flatten<T>(

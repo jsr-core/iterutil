@@ -10,7 +10,7 @@
  * import { uniq } from "@core/iterutil/uniq";
  *
  * const iter = uniq([1, 2, 2, 3, 3, 3]);
- * console.log([...iter]); // [1, 2, 3]
+ * console.log(Array.from(iter)); // [1, 2, 3]
  * ```
  *
  * @example With identify function
@@ -21,7 +21,7 @@
  *   [1, 2, 3, 1, 2, 3, 10, 20, 30, 11, 21, 31],
  *   (v) => Math.floor(v / 10),
  * );
- * console.log([...iter]); // [1, 10, 20, 30]
+ * console.log(Array.from(iter)); // [1, 10, 20, 30]
  * ```
  */
 export function* uniq<T>(

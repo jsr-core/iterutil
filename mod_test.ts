@@ -39,7 +39,7 @@ async function* iterPublicModules(relpath: string): AsyncIterable<string> {
 
 async function listModExports(path: string): Promise<string[]> {
   const mod = await import(import.meta.resolve(path));
-  return [...Object.keys(mod)];
+  return Array.from(Object.keys(mod));
 }
 
 async function listJsrExportEntries(): Promise<[string, string][]> {

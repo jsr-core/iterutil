@@ -1,7 +1,6 @@
 import { assertEquals, assertThrows } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { toAsyncIterable } from "./to_async_iterable.ts";
-import { toArray } from "./to_array.ts";
 import { take, TakeLimitError } from "./take.ts";
 
 Deno.test("take", async (t) => {
@@ -9,7 +8,7 @@ Deno.test("take", async (t) => {
     await t.step("with positive limit", async () => {
       const result = take(toAsyncIterable([0, 1, 2, 3, 4]), 2);
       const expected = [0, 1];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -25,7 +24,7 @@ Deno.test("take", async (t) => {
     await t.step("with 0 limit", async () => {
       const result = take(toAsyncIterable([0, 1, 2, 3, 4]), 0);
       const expected: number[] = [];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
   });
@@ -34,7 +33,7 @@ Deno.test("take", async (t) => {
     await t.step("with positive limit", async () => {
       const result = take([0, 1, 2, 3, 4], 2);
       const expected = [0, 1];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -50,7 +49,7 @@ Deno.test("take", async (t) => {
     await t.step("with 0 limit", async () => {
       const result = take([0, 1, 2, 3, 4], 0);
       const expected: number[] = [];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
   });

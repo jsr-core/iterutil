@@ -6,11 +6,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { toAsyncIterable } from "@core/iterutil/async/to-async-iterable";
  *
  * const iter = toAsyncIterable([1, 2, 3]);
- * console.log(await toArray(iter)); // [1, 2, 3]
+ * console.log(await Array.fromAsync(iter)); // [1, 2, 3]
  * ```
  */
 export async function* toAsyncIterable<T>(

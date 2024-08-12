@@ -11,7 +11,7 @@
  * import { take } from "@core/iterutil/take";
  *
  * const iter = count(1, 2);
- * console.log([...take(iter, 5)]); // [1, 3, 5, 7, 9]
+ * console.log(Array.from(take(iter, 5))); // [1, 3, 5, 7, 9]
  * ```
  */
 export function* count(start: number = 0, step: number = 1): Iterable<number> {

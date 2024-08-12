@@ -10,7 +10,7 @@
  * import { chunked } from "@core/iterutil/chunked";
  *
  * const iter = chunked([1, 2, 3, 4, 5], 2);
- * console.log([...iter]); // [[1, 2], [3, 4], [5]]
+ * console.log(Array.from(iter)); // [[1, 2], [3, 4], [5]]
  * ```
  */
 export function* chunked<T>(

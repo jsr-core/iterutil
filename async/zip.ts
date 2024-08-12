@@ -6,11 +6,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { zip } from "@core/iterutil/async/zip";
  *
  * const iter = zip([1, 2, 3], ["a", "b", "c"]);
- * console.log(await toArray(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
+ * console.log(await Array.fromAsync(iter)); // [[1, "a"], [2, "b"], [3, "c"]]
  * ```
  */
 export async function* zip<

@@ -8,7 +8,7 @@
  * ```ts
  * import { range } from "@core/iterutil/range";
  *
- * console.log([...range(3)]); // [0, 1, 2]
+ * console.log(Array.from(range(3))); // [0, 1, 2]
  * ```
  */
 export function range(stop: number): Iterable<number>;
@@ -23,7 +23,7 @@ export function range(stop: number): Iterable<number>;
  * ```ts
  * import { range } from "@core/iterutil/range";
  *
- * console.log([...range(1, 6, 2)]); // [1, 3, 5]
+ * console.log(Array.from(range(1, 6, 2))); // [1, 3, 5]
  * ```
  */
 export function range(

@@ -13,7 +13,7 @@
  * import { dropWhile } from "@core/iterutil/drop-while";
  *
  * const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
- * console.log([...iter]); // [3, 4, 5]
+ * console.log(Array.from(iter)); // [3, 4, 5]
  * ```
  */
 export function* dropWhile<T>(

@@ -10,7 +10,7 @@
  * import { filter } from "@core/iterutil/filter";
  *
  * const iter = filter([1, 2, 3, 4, 5], (value) => value % 2 === 0);
- * console.log([...iter]); // [2, 4]
+ * console.log(Array.from(iter)); // [2, 4]
  * ```
  */
 export function* filter<T>(

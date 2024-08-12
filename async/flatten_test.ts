@@ -1,7 +1,6 @@
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { toAsyncIterable } from "./to_async_iterable.ts";
-import { toArray } from "./to_array.ts";
 import { flatten } from "./flatten.ts";
 
 Deno.test("flatten", async (t) => {
@@ -9,7 +8,7 @@ Deno.test("flatten", async (t) => {
     await t.step("single nest", async () => {
       const result = flatten([[1, 2], [3, 4], [5]]);
       const expected = [1, 2, 3, 4, 5];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -20,7 +19,7 @@ Deno.test("flatten", async (t) => {
         toAsyncIterable([5]),
       ]);
       const expected = [1, 2, 3, 4, 5];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
@@ -31,14 +30,14 @@ Deno.test("flatten", async (t) => {
         Promise.resolve([5]),
       ]);
       const expected = [1, 2, 3, 4, 5];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
     });
 
     await t.step("multi nest", async () => {
       const result = flatten([[[1, 2], [3, 4]], [[5]]]);
       const expected = [[1, 2], [3, 4], [5]];
-      assertEquals(await toArray(result), expected);
+      assertEquals(await Array.fromAsync(result), expected);
       assertType<IsExact<typeof result, AsyncIterable<number[]>>>(true);
     });
   });

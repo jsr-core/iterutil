@@ -10,11 +10,10 @@
  *
  * @example
  * ```ts
- * import { toArray } from "@core/iterutil/async/to-array";
  * import { dropWhile } from "@core/iterutil/async/drop-while";
  *
  * const iter = dropWhile([1, 2, 3, 4, 5], (x) => x < 3);
- * console.log(await toArray(iter)); // [3, 4, 5]
+ * console.log(await Array.fromAsync(iter)); // [3, 4, 5]
  * ```
  */
 export async function* dropWhile<T>(
