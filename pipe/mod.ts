@@ -15,6 +15,7 @@ export * from "./flatten.ts";
 export * from "./for_each.ts";
 export * from "./last.ts";
 export * from "./map.ts";
+export * from "./nth.ts";
 export * from "./pairwise.ts";
 export * from "./partition.ts";
 export * from "./reduce.ts";

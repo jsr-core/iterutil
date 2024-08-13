@@ -857,6 +857,43 @@ const iter = pipe(
 console.log(await Array.fromAsync(iter)); // [2, 4, 6]
 ```
 
+### nth
+
+Returns the n-th element of an iterable. If the length of the iterable is less,
+returns `undefined`.
+
+```ts
+import { nth } from "@core/iterutil/nth";
+
+const result = nth([1, 2, 3], 1);
+console.log(result); // 2
+```
+
+```ts
+import { nth } from "@core/iterutil/async/nth";
+
+const result = await nth([1, 2, 3], 1);
+console.log(result); // 2
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { nth } from "@core/iterutil/pipe/nth";
+
+const result = pipe([1, 2, 3], nth(1));
+console.log(result); // 2
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { nth } from "@core/iterutil/pipe/async/nth";
+
+const result = await pipe([1, 2, 3], nth(1));
+console.log(result); // 2
+```
+
 ### pairwise
 
 Returns an iterable that pairs adjacent elements from the input iterable.
