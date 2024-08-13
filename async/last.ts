@@ -2,6 +2,7 @@
  * Returns the last element of an iterable.
  *
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/first/~/first first} to get the first element.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/nth/~/nth nth} to get the n-th element.
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/find/~/find find} to find an element.
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/last/~/last last} to get the last element synchronously.
  *

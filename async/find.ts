@@ -4,6 +4,7 @@
  *
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/first/~/first first} to get the first element.
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/last/~/last last} to get the last element.
+ * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/nth/~/nth nth} to get the n-th element.
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/async/filter/~/filter filter} to filter elements.
  * Use {@linkcode https://jsr.io/@core/iterutil/doc/find/~/find find} to find elements synchronously.
  *
