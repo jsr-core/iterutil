@@ -17,6 +17,7 @@ export * from "./for_each.ts";
 export * from "./iter.ts";
 export * from "./last.ts";
 export * from "./map.ts";
+export * from "./nth.ts";
 export * from "./pairwise.ts";
 export * from "./partition.ts";
 export * from "./range.ts";
