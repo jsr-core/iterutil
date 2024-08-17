@@ -1,4 +1,4 @@
-import { compact } from "@core/iterutil/async/compact";
+import { compact } from "../../async/compact.ts";
 
 export {
   /**

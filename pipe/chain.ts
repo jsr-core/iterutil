@@ -1,4 +1,4 @@
-import { type Chain, chain as base } from "@core/iterutil/chain";
+import { type Chain, chain as base } from "../chain.ts";
 
 /**
  * Returns an operator that chains multiple iterables to the iterable.

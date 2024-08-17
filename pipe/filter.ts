@@ -1,4 +1,4 @@
-import { filter as base } from "@core/iterutil/filter";
+import { filter as base } from "../filter.ts";
 
 /**
  * Returns an operator that filters an iterable based on a function.

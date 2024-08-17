@@ -1,4 +1,4 @@
-import { map as base } from "@core/iterutil/async/map";
+import { map as base } from "../../async/map.ts";
 
 /**
  * Returns an operator that maps the iterable using the provided function.

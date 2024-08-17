@@ -1,4 +1,4 @@
-import { first } from "@core/iterutil/async/first";
+import { first } from "../../async/first.ts";
 
 export {
   /**

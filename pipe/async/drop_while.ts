@@ -1,4 +1,4 @@
-import { dropWhile as base } from "@core/iterutil/async/drop-while";
+import { dropWhile as base } from "../../async/drop_while.ts";
 
 /**
  * Returns an operator that drops elements from the iterable while the predicate returns true.

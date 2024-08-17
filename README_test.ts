@@ -1,9 +1,9 @@
 import { assertEquals } from "@std/assert";
 import { pipe } from "@core/pipe";
-import * as rootMod from "@core/iterutil";
-import * as asyncMod from "@core/iterutil/async";
-import * as pipeMod from "@core/iterutil/pipe";
-import * as pipeAsyncMod from "@core/iterutil/pipe/async";
+import * as rootMod from "./mod.ts";
+import * as asyncMod from "./async/mod.ts";
+import * as pipeMod from "./pipe/mod.ts";
+import * as pipeAsyncMod from "./pipe/async/mod.ts";
 
 Deno.test("README", async (t) => {
   await t.step("case 1", () => {

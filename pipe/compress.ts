@@ -1,4 +1,4 @@
-import { compress as base } from "@core/iterutil/compress";
+import { compress as base } from "../compress.ts";
 
 /**
  * Returns an operator that compresses an iterable by selecting elements using a selector iterable.

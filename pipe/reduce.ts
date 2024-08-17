@@ -1,4 +1,4 @@
-import { reduce as base } from "@core/iterutil/reduce";
+import { reduce as base } from "../reduce.ts";
 
 /**
  * Returns an operator that reduces an iterable into a single value.

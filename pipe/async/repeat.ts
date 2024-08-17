@@ -1,4 +1,4 @@
-import { repeat as base } from "@core/iterutil/async/repeat";
+import { repeat as base } from "../../async/repeat.ts";
 
 /**
  * An operator to return a function that repeats the elements of an iterable.

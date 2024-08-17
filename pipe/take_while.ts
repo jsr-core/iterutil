@@ -1,4 +1,4 @@
-import { takeWhile as base } from "@core/iterutil/take-while";
+import { takeWhile as base } from "../take_while.ts";
 
 /**
  * Returns an operator that takes elements from the iterable while the predicate returns `true`.

@@ -1,4 +1,4 @@
-import { some as base } from "@core/iterutil/some";
+import { some as base } from "../some.ts";
 
 /**
  * Returns an operator that tests whether at least one element in the iterable satisfies the provided testing function.

@@ -1,4 +1,4 @@
-import { repeat as base } from "@core/iterutil/repeat";
+import { repeat as base } from "../repeat.ts";
 
 /**
  * An operator to return a function that repeats the elements of an iterable.

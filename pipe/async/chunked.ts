@@ -1,4 +1,4 @@
-import { chunked as base } from "@core/iterutil/async/chunked";
+import { chunked as base } from "../../async/chunked.ts";
 
 /**
  * Returns an operator that chunks the iterable into arrays of `size`.

@@ -1,4 +1,4 @@
-import { find as base } from "@core/iterutil/async/find";
+import { find as base } from "../../async/find.ts";
 
 /**
  * Returns an operator that finds the first element that satisfies the provided testing function.

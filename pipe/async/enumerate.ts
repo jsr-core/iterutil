@@ -1,4 +1,4 @@
-import { enumerate as base } from "@core/iterutil/async/enumerate";
+import { enumerate as base } from "../../async/enumerate.ts";
 
 /**
  * Returns an operator that enumerates the iterable.

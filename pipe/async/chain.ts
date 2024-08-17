@@ -1,4 +1,4 @@
-import { type Chain, chain as base } from "@core/iterutil/async/chain";
+import { type Chain, chain as base } from "../../async/chain.ts";
 
 /**
  * Returns an operator that chains multiple iterables to the iterable.

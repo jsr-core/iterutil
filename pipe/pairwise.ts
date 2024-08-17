@@ -1,4 +1,4 @@
-import { pairwise } from "@core/iterutil/pairwise";
+import { pairwise } from "../pairwise.ts";
 
 export {
   /**

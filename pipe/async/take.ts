@@ -1,4 +1,4 @@
-import { take as base } from "@core/iterutil/async/take";
+import { take as base } from "../../async/take.ts";
 /**
  * Returns an operator that takes the first `limit` items from the iterable.
  *

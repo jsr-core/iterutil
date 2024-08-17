@@ -1,4 +1,4 @@
-import { takeWhile as base } from "@core/iterutil/async/take-while";
+import { takeWhile as base } from "../../async/take_while.ts";
 
 /**
  * Returns an operator that takes elements from the iterable while the predicate returns `true`.

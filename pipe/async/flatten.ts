@@ -1,4 +1,4 @@
-import { flatten } from "@core/iterutil/async/flatten";
+import { flatten } from "../../async/flatten.ts";
 
 export {
   /**

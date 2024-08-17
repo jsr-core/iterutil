@@ -1,4 +1,4 @@
-import { uniq as base } from "@core/iterutil/uniq";
+import { uniq as base } from "../uniq.ts";
 
 /**
  * Returns an operator that yields the unique elements of the iterable.

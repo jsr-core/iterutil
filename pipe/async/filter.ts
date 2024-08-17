@@ -1,4 +1,4 @@
-import { filter as base } from "@core/iterutil/async/filter";
+import { filter as base } from "../../async/filter.ts";
 
 /**
  * Returns an operator that filters an iterable based on a function.
