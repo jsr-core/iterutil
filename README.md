@@ -1073,6 +1073,48 @@ const joined = await pipe(
 console.log(joined); // 12345
 ```
 
+### repeat
+
+Returns an finite iterable that repeats through the given iterable.
+
+```ts
+import { repeat } from "@core/iterutil/repeat";
+
+const iter = repeat([1, 2, 3], 2);
+console.log(Array.from(iter)); // [1, 2, 3, 1, 2, 3]
+```
+
+```ts
+import { repeat } from "@core/iterutil/async/repeat";
+
+const iter = repeat([1, 2, 3], 2);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 1, 2, 3]
+```
+
+Use `pipe` and `pipe/async` modules for [@core/pipe] package like.
+
+```ts
+import { pipe } from "@core/pipe";
+import { repeat } from "@core/iterutil/pipe/repeat";
+
+const iter = pipe(
+  [1, 2, 3],
+  repeat(2),
+);
+console.log(Array.from(iter)); // [1, 2, 3, 1, 2, 3]
+```
+
+```ts
+import { pipe } from "@core/pipe";
+import { repeat } from "@core/iterutil/pipe/async/repeat";
+
+const iter = pipe(
+  [1, 2, 3],
+  repeat(2),
+);
+console.log(await Array.fromAsync(iter)); // [1, 2, 3, 1, 2, 3]
+```
+
 ### some
 
 Returns true if at least one element in the iterable satisfies the provided
