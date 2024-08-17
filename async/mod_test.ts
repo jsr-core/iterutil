@@ -1,3 +1,4 @@
+import { test } from "@cross/test";
 import { assertArrayIncludes } from "@std/assert";
 import { basename, globToRegExp, join } from "@std/path";
 import { ensure, is } from "@core/unknownutil";
@@ -9,16 +10,16 @@ const excludes = [
   "*_bench.ts",
 ];
 
-Deno.test("mod.ts must exports all exports in public modules", async () => {
+test("mod.ts must exports all exports in public modules", async () => {
   const modExports = await listModExports("./mod.ts");
   const pubExports = [];
   for await (const name of iterPublicModules(".")) {
     pubExports.push(...await listModExports(`./${name}.ts`));
   }
   assertArrayIncludes(modExports, pubExports);
-});
+}, { skip: !("Deno" in globalThis) });
 
-Deno.test("JSR exports must have all exports in mod.ts", async () => {
+test("JSR exports must have all exports in mod.ts", async () => {
   const jsrExportEntries = await listJsrExportEntries();
   const modExportEntries: [string, string][] = [];
   for await (const name of iterPublicModules(".")) {
@@ -28,7 +29,7 @@ Deno.test("JSR exports must have all exports in mod.ts", async () => {
     ]);
   }
   assertArrayIncludes(jsrExportEntries, modExportEntries);
-});
+}, { skip: !("Deno" in globalThis) });
 
 async function* iterPublicModules(relpath: string): AsyncIterable<string> {
   const patterns = excludes.map((p) => globToRegExp(p));

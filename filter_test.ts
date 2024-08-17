@@ -1,8 +1,9 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { filter } from "./filter.ts";
 
-Deno.test("filter", () => {
+test("filter", () => {
   const values: number[] = [];
   const indices: number[] = [];
   const result = filter([1, 2, 3, 4, 5], (v, index) => {
