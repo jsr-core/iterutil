@@ -1,4 +1,4 @@
-import { map as base } from "@core/iterutil/map";
+import { map as base } from "../map.ts";
 
 /**
  * Returns an operator that maps the iterable using the provided function.

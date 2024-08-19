@@ -1,9 +1,10 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { pipe } from "@core/pipe";
 import { map } from "./map.ts";
 
-Deno.test("map", async () => {
+test("map usage", async () => {
   const result = pipe(
     [1, 2, 3, 4, 5],
     map((v) => v * 2),

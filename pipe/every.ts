@@ -1,4 +1,4 @@
-import { every as base } from "@core/iterutil/every";
+import { every as base } from "../every.ts";
 
 /**
  * Returns an operator that tests whether every element in the iterable satisfies the provided testing function.

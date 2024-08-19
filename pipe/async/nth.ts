@@ -1,4 +1,4 @@
-import { nth as base } from "@core/iterutil/async/nth";
+import { nth as base } from "../../async/nth.ts";
 
 /**
  * Returns an operator that returns the n-th element of an iterable. If the length of the iterable is less, returns `undefined`.

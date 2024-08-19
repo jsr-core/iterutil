@@ -259,6 +259,7 @@
     "@core/iterutil/zip": "./zip.ts",
     "@core/pipe": "jsr:@core/pipe@^0.2.0",
     "@core/unknownutil": "jsr:@core/unknownutil@^4.0.1",
+    "@cross/test": "jsr:@cross/test@^0.0.9",
     "@std/assert": "jsr:@std/assert@^1.0.2",
     "@std/jsonc": "jsr:@std/jsonc@^1.0.0",
     "@std/path": "jsr:@std/path@^1.0.2",

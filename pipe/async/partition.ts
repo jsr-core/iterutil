@@ -1,4 +1,4 @@
-import { partition as base } from "@core/iterutil/async/partition";
+import { partition as base } from "../../async/partition.ts";
 
 /**
  * Returns an operator that partitions the iterable using the provided function.

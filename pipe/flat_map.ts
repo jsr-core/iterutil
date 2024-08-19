@@ -1,4 +1,4 @@
-import { flatMap as base } from "@core/iterutil/flat-map";
+import { flatMap as base } from "../flat_map.ts";
 
 /**
  * Returns an operator that flat maps the iterable.

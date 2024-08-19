@@ -1,4 +1,4 @@
-import { cycle } from "@core/iterutil/async/cycle";
+import { cycle } from "../../async/cycle.ts";
 
 export {
   /**

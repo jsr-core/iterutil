@@ -1,9 +1,10 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { pipe } from "@core/pipe";
 import { filter } from "./filter.ts";
 
-Deno.test("filter", async () => {
+test("filter usage", async () => {
   const result = pipe(
     [1, 2, 3, 4, 5],
     filter((v) => v % 2 === 0),

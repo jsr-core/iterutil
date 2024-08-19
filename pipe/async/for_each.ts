@@ -1,4 +1,4 @@
-import { forEach as base } from "@core/iterutil/async/for-each";
+import { forEach as base } from "../../async/for_each.ts";
 
 /**
  * Returns an operator that calls the given function for each value in the iterable.

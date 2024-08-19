@@ -1,4 +1,4 @@
-import { partition as base } from "@core/iterutil/partition";
+import { partition as base } from "../partition.ts";
 
 /**
  * Returns an operator that partitions the iterable using the provided function.

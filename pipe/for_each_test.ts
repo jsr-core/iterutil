@@ -1,8 +1,9 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { pipe } from "@core/pipe";
 import { forEach } from "./for_each.ts";
 
-Deno.test("forEach", () => {
+test("forEach usage", () => {
   const values: number[] = [];
   pipe(
     [1, 2, 3, 4, 5],

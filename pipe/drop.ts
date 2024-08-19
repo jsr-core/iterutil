@@ -1,4 +1,4 @@
-import { drop as base } from "@core/iterutil/drop";
+import { drop as base } from "../drop.ts";
 
 /**
  * Returns an operator that drops the first `limit` items from the iterable.

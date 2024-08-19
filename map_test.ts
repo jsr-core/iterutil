@@ -1,8 +1,9 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { assertType, type IsExact } from "@std/testing/types";
 import { map } from "./map.ts";
 
-Deno.test("map", () => {
+test("map", () => {
   const values: number[] = [];
   const indices: number[] = [];
   const result = map([1, 2, 3, 4, 5], (v, index) => {

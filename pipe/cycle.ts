@@ -1,4 +1,4 @@
-import { cycle } from "@core/iterutil/cycle";
+import { cycle } from "../cycle.ts";
 
 export {
   /**

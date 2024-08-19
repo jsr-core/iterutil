@@ -1,7 +1,8 @@
+import { test } from "@cross/test";
 import { assertEquals } from "@std/assert";
 import { forEach } from "./for_each.ts";
 
-Deno.test("forEach", () => {
+test("forEach", () => {
   const values: number[] = [];
   const indices: number[] = [];
   forEach([1, 2, 3, 4, 5], (v, index) => {

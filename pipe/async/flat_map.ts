@@ -1,4 +1,4 @@
-import { flatMap as base } from "@core/iterutil/async/flat-map";
+import { flatMap as base } from "../../async/flat_map.ts";
 
 /**
  * Returns an operator that flat maps the iterable.

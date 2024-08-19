@@ -1,4 +1,4 @@
-import { type Zip, zip as base } from "@core/iterutil/zip";
+import { type Zip, zip as base } from "../zip.ts";
 
 /**
  * Returns an operator that zips the provided iterables with the iterable.
