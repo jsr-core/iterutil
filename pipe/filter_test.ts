@@ -13,3 +13,14 @@ test("filter usage", () => {
   assertEquals(Array.from(result), expected);
   assertType<IsExact<typeof result, Iterable<number>>>(true);
 });
+
+test("filter usage with type predicate", () => {
+  const predicate = (v: number | string): v is number => typeof v === "number";
+  const result = pipe(
+    [1, "a", 2, "b", 3],
+    filter(predicate),
+  );
+  const expected = [1, 2, 3];
+  assertEquals(Array.from(result), expected);
+  assertType<IsExact<typeof result, Iterable<number>>>(true);
+});
