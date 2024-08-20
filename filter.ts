@@ -1,11 +1,11 @@
-export function filter<T>(
-  iterable: Iterable<T>,
-  fn: (value: T, index: number) => boolean,
-): Iterable<T>;
 export function filter<T, U extends T>(
   iterable: Iterable<T>,
   fn: (value: T, index: number) => value is U,
 ): Iterable<U>;
+export function filter<T>(
+  iterable: Iterable<T>,
+  fn: (value: T, index: number) => boolean,
+): Iterable<T>;
 /**
  * Filters an iterable based on a function.
  *
