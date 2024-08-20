@@ -1,5 +1,11 @@
 import { filter as base } from "../../async/filter.ts";
 
+export function filter<T, U extends T>(
+  fn: (value: T, index: number) => value is U,
+): (iterable: Iterable<T> | AsyncIterable<T>) => AsyncIterable<U>;
+export function filter<T>(
+  fn: (value: T, index: number) => boolean | Promise<boolean>,
+): (iterable: Iterable<T> | AsyncIterable<T>) => AsyncIterable<T>;
 /**
  * Returns an operator that filters an iterable based on a function.
  *

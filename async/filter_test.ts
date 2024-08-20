@@ -69,3 +69,11 @@ await test("filter with iterable with promise", async () => {
   assertEquals(indices, [0, 1, 2, 3, 4]);
   assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
 });
+
+await test("filter with type predicate", async () => {
+  const predicate = (v: number | string): v is number => typeof v === "number";
+  const result = filter([1, "a", 2, "b", 3], predicate);
+  const expected = [1, 2, 3];
+  assertEquals(await Array.fromAsync(result), expected);
+  assertType<IsExact<typeof result, AsyncIterable<number>>>(true);
+});

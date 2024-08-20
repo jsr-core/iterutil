@@ -1,3 +1,11 @@
+export function filter<T, U extends T>(
+  iterable: Iterable<T> | AsyncIterable<T>,
+  fn: (value: T, index: number) => value is U,
+): AsyncIterable<U>;
+export function filter<T>(
+  iterable: Iterable<T> | AsyncIterable<T>,
+  fn: (value: T, index: number) => boolean | Promise<boolean>,
+): AsyncIterable<T>;
 /**
  * Filters an iterable based on a function.
  *
