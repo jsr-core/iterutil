@@ -1115,6 +1115,27 @@ const iter = pipe(
 console.log(await Array.fromAsync(iter)); // [1, 2, 3, 1, 2, 3]
 ```
 
+### repeatable
+
+Transform an async iterable into a repeatable async iterable. It caches the
+values of the original iterable so that it can be replayed. Useful for replaying
+the costly async iterable.
+
+```ts
+import { repeatable } from "@core/iterutil/async/repeatable";
+import { assertEquals } from "@std/assert";
+
+const origin = (async function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+})();
+const iter = repeatable(origin);
+assertEquals(await Array.fromAsync(iter), [1, 2, 3]);
+assertEquals(await Array.fromAsync(iter), [1, 2, 3]); // iter can be replayed
+assertEquals(await Array.fromAsync(origin), []); // origin is already consumed
+```
+
 ### some
 
 Returns true if at least one element in the iterable satisfies the provided
