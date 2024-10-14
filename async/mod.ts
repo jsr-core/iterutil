@@ -21,6 +21,7 @@ export * from "./pairwise.ts";
 export * from "./partition.ts";
 export * from "./reduce.ts";
 export * from "./repeat.ts";
+export * from "./repeatable.ts";
 export * from "./some.ts";
 export * from "./take.ts";
 export * from "./take_while.ts";
